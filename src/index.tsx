@@ -1,29 +1,28 @@
+import { MainLayout } from '@/layouts/MainLayout';
+import { NotFound } from '@/pages/_404.tsx';
+import '@/style.scss';
 import {
   LocationProvider,
-  Router,
   Route,
+  Router,
   hydrate,
   prerender as ssr,
 } from 'preact-iso';
 
-import { Home } from '@/pages/Home';
-import { NotFound } from '@/pages/_404.tsx';
-
 import { withBase } from './utils';
-import '@/style.scss';
 
-export function App() {
+export const App = () => {
   return (
     <LocationProvider>
       <main>
         <Router>
-          <Route path={withBase('/')} component={Home} />
+          <Route path={withBase('/')} component={MainLayout} />
           <Route default component={NotFound} />
         </Router>
       </main>
     </LocationProvider>
   );
-}
+};
 
 if (typeof window !== 'undefined') {
   hydrate(<App />, document.getElementById('app'));

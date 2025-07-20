@@ -1,0 +1,15 @@
+.bookmark {
+  position: absolute;
+  top: 0;
+  left: 1em;
+  height: 350px;
+  width: 20px;
+  background: linear-gradient(
+    90deg,
+    #211813 0%,
+    #211813 calc(100% - 2px),
+    rgba(99, 71, 57, 1) calc(100% - 2px),
+    rgba(99, 71, 57, 1) 100%
+  );
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% calc(100% - 10px), 0 100%);
+}

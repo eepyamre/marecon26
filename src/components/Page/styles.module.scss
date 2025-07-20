@@ -1,0 +1,32 @@
+.page {
+  padding-top: 180px;
+  padding-right: 1.3em;
+  padding-left: 0.5em;
+
+  background-color: #f6f6f6;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  pointer-events: none;
+  user-select: none;
+
+  transform-origin: left center;
+  transition: transform 0.4s ease-in-out;
+  transform: translateZ(-1px) translateX(100%);
+  backface-visibility: hidden;
+
+  &.active {
+    transform: translateZ(00px);
+    pointer-events: all;
+    user-select: unset;
+  }
+
+  &.pageExit {
+    transform: translateZ(-20px);
+  }
+}

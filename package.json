@@ -7,6 +7,7 @@
     "preview": "vite preview --port 3000"
   },
   "dependencies": {
+    "@preact/signals": "^2.2.1",
     "classnames": "^2.5.1",
     "preact": "^10.22.1",
     "preact-iso": "^2.8.1",
@@ -14,10 +15,12 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.9.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^22.10.1",
     "eslint": "^8.57.1",
     "eslint-config-preact": "^1.5.0",
     "path": "^0.12.7",
+    "prettier": "^3.6.2",
     "sass": "^1.82.0",
     "typescript": "^5.7.2",
     "vite": "^5.3.3"

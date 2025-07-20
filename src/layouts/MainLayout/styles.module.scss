@@ -1,0 +1,11 @@
+.pages {
+  border-top-right-radius: 32px;
+  width: calc(100% - 0.6em);
+  height: calc(100vh - 80px);
+  position: absolute;
+  bottom: 0;
+  left: 0.6em;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  overflow: hidden;
+}

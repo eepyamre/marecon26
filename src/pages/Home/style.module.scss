@@ -1,13 +1,6 @@
 .title {
   text-align: center;
-}
-
-.logo {
-  width: 240px;
-  transform: rotate(12deg);
-  position: absolute;
-  right: 0;
-  top: 0;
+  padding-top: 80px;
 }
 
 .content {
@@ -41,7 +34,7 @@
     content: '';
     position: absolute;
     inset: -8px;
-    background-image: url('http://i.imgur.com/5O74VI6.jpg');
+    background-image: url('../../assets/noise.jpeg');
     mix-blend-mode: lighten;
   }
 

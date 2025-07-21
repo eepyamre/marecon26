@@ -1,11 +1,20 @@
 .pages {
   border-top-right-radius: 32px;
-  width: calc(100% - 0.6em);
-  height: calc(100vh - 80px);
-  position: absolute;
+  min-height: calc(100vh - 80px);
+  height: fit-content;
+
   bottom: 0;
   left: 0.6em;
   transform-style: preserve-3d;
   perspective: 2000px;
   overflow: hidden;
+}
+
+.logo {
+  width: 240px;
+  transform: rotate(16deg);
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 1;
 }

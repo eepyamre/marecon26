@@ -1,7 +1,9 @@
-import { activePage } from '@/state';
-import { Pages } from '@/state/types';
 import cn from 'classnames';
 import { FC, PropsWithChildren } from 'preact/compat';
+
+import { Pages } from '@/state/types';
+
+import { activePage } from '@/state';
 
 import css from './styles.module.scss';
 

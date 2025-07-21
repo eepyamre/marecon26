@@ -1,0 +1,45 @@
+.wrapper {
+  border: 10px solid #fff;
+  width: fit-content;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  height: fit-content;
+
+  .textWrapper {
+    font-size: 1.7rem;
+    background-color: #fff;
+    height: 60px;
+    padding: 8px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .imageWrapper {
+    position: relative;
+    background-color: #eee;
+    height: 300px;
+    aspect-ratio: 1/1;
+    border: 1px solid #eee;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('../../assets/noise_photo.jpg');
+      mix-blend-mode: color-burn;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

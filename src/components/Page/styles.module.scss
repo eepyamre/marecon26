@@ -1,10 +1,12 @@
 .page {
-  padding-top: 180px;
-  padding-right: 1.3em;
+  padding-top: 80px;
   padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 128px;
 
   background-color: #f6f6f6;
-  height: 100%;
+  height: fit-content;
+  min-height: calc(100vh - 80px);
   width: 100%;
   position: absolute;
   left: 0;
@@ -24,6 +26,7 @@
     transform: translateZ(00px);
     pointer-events: all;
     user-select: unset;
+    position: relative;
   }
 
   &.pageExit {

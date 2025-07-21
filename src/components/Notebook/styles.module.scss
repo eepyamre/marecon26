@@ -1,13 +1,13 @@
 .wrapper {
   width: 70%;
   min-height: calc(100vh - 80px);
+  height: fit-content;
   max-width: 900px;
   border-top-right-radius: 32px;
   padding-left: 0.6em;
   color: #000;
   display: flex;
   flex-direction: column;
-  position: re;
   box-shadow:
     0.1em 0.1em #ddd,
     0.065em 0.05em #fff,
@@ -60,53 +60,5 @@
       linear-gradient(#0000 0.225em, #fff7 0.28em 0.3em, #0000 0.375em) 80% 0 /
         68% 3vmin repeat-y;
     mask-composite: intersect;
-  }
-}
-
-.bookmarks {
-  position: absolute;
-  font-size: 1.1rem;
-  right: 0;
-  top: 0;
-  transform: rotate(90deg) translateX(80%) translateY(-394px);
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 4px;
-
-  div {
-    padding: 2px 18px;
-    background-color: var(--purple);
-    color: #fff;
-    font-weight: 700;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    display: block;
-    max-width: 160px;
-    height: fit-content;
-    position: relative;
-    bottom: 0;
-    text-align: center;
-    cursor: pointer;
-
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: var(--purple);
-      width: 100%;
-      height: 10px;
-      bottom: 0;
-      left: 0;
-      transition: all 0.25s ease-in-out;
-    }
-
-    &:hover {
-      bottom: 10px;
-
-      &::after {
-        bottom: -10px;
-      }
-    }
   }
 }

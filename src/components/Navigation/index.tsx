@@ -9,7 +9,7 @@ export const Navigation = () => {
     <nav class={css.bookmarks}>
       <div onClick={() => setPage(Pages.HOME)}>Welcome</div>
       <div onClick={() => setPage(Pages.MASCOTS)}>Mascots</div>
-      <div>HQ</div>
+      <div onClick={() => setPage(Pages.HQ)}>HQ</div>
       <div>Schedule</div>
       <div>Vendors & Merch</div>
       <div>FAQ</div>

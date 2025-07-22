@@ -13,7 +13,7 @@ import css from './styles.module.scss';
 export const Mascots = () => {
   return (
     <Page page={Pages.MASCOTS}>
-      <h1 class={css.title}>MASCOTS</h1>
+      <h1 class={css.title}>Mascots</h1>
       <div class={cn(css.mascotsContainer, css.comfyContainer)}>
         <Photo className={css.comfy} src={comfy}>
           Comfy Cuddles

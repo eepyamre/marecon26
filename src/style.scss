@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
 @layer {
   :root {
     --text: #333;
@@ -8,6 +9,8 @@
     --purple: #e862a9;
     --green: #34d56a;
     --red: #ed1c24;
+    --titleColor: #e06c75;
+    --blue: #61afef;
   }
 
   * {
@@ -15,11 +18,13 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
   }
 
   body {
     background-color: var(--background);
     font-family: 'Kalam', cursive;
+    overflow-x: hidden;
   }
 
   main {
@@ -40,7 +45,12 @@
   h1,
   h2,
   h3 {
-    font-family: 'Gochi Hand', cursive;
+    font-family: 'Caveat', cursive;
+    color: var(--titleColor);
+  }
+
+  h2 {
+    font-size: 3rem;
   }
 
   img {

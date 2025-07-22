@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: #ffc;
+  padding: 24px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(4deg);
+  width: fit-content;
+  color: #333;
+  transition: all 0.2s ease;
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}

@@ -3,6 +3,7 @@ import { signal } from '@preact/signals';
 import { Pages } from './types';
 
 export const activePage = signal(Pages.HOME);
+export const hqFulfillment = signal(false);
 
 export const nextPage = () => {
   const nextPage = activePage.value + 1;
@@ -20,4 +21,8 @@ export const prevPage = () => {
 
 export const setPage = (page: Pages) => {
   activePage.value = page;
+};
+
+export const setHqFulfillment = (b: boolean) => {
+  hqFulfillment.value = b;
 };

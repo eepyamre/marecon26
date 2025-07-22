@@ -12,7 +12,7 @@ export const Navigation = () => {
       <div onClick={() => setPage(Pages.HQ)}>HQ</div>
       <div>Schedule</div>
       <div>Vendors & Merch</div>
-      <div>FAQ</div>
+      <div onClick={() => setPage(Pages.FAQ)}>FAQ</div>
       <div>Archive</div>
     </nav>
   );

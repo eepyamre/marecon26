@@ -1,0 +1,19 @@
+.content {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subTitle {
+  border-bottom: 1px #ccc dashed;
+  margin-bottom: 32px;
+  padding-top: 32px;
+}
+
+.description {
+  font-size: 1.2rem;
+
+  a {
+    text-decoration: underline;
+  }
+}

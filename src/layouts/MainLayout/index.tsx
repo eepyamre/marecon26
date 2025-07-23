@@ -1,3 +1,4 @@
+import { Archive } from '@/pages/Archive';
 import { FAQ } from '@/pages/FAQ';
 import { HQ } from '@/pages/HQ';
 import { Home } from '@/pages/Home';
@@ -23,6 +24,7 @@ export const MainLayout = () => {
           <Mascots />
           <HQ />
           <FAQ />
+          <Archive />
         </div>
       </Notebook>
     </>

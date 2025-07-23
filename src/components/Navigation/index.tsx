@@ -10,10 +10,10 @@ export const Navigation = () => {
       <div onClick={() => setPage(Pages.HOME)}>Welcome</div>
       <div onClick={() => setPage(Pages.MASCOTS)}>Mascots</div>
       <div onClick={() => setPage(Pages.HQ)}>HQ</div>
-      <div>Schedule</div>
-      <div>Vendors & Merch</div>
+      {/* <div>Schedule</div> */}
+      {/* <div>Vendors & Merch</div> */}
       <div onClick={() => setPage(Pages.FAQ)}>FAQ</div>
-      <div>Archive</div>
+      <div onClick={() => setPage(Pages.ARCHIVE)}>Archive</div>
     </nav>
   );
 };

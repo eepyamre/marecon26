@@ -7,6 +7,7 @@ type Props = PropsWithChildren & {
   href?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   className?: string;
+  target?: string;
 };
 
 export const Button: FC<Props> = ({ children, className, ...props }) => {

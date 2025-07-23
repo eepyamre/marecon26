@@ -11,7 +11,7 @@ export const Home = () => {
       <h1 class={css.title}>Marecon 2026</h1>
       <div class={css.stamp}>
         <h3>Date</h3>
-        <span>01.02.2026</span>
+        <span>XX.XX.2026</span>
       </div>
       <div className={css.content}>
         <div className={css.note}>(Please handle with care)</div>

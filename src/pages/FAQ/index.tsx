@@ -1,8 +1,6 @@
-import cn from 'classnames';
-
 import { Pages } from '@/state/types';
 
-import { Button, Note, Page, Photo } from '@/components';
+import { Page } from '@/components';
 
 import css from './styles.module.scss';
 
@@ -31,7 +29,10 @@ export const FAQ = () => {
           moderation, panels, vending, cytube programming, and just about
           anything else you can think about contributing! If you're interested
           in helping, please post in the marecon thread or send an email to{' '}
-          <a href="mailto:volunteer@marecon.live">volunteer@marecon.live</a>!
+          <a target={'_blank'} href="mailto:volunteer@marecon.live">
+            volunteer@marecon.live
+          </a>
+          !
         </p>
       </div>
     </Page>

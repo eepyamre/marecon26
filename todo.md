@@ -1,0 +1,4 @@
+- Mobile version
+- Page for each mascot
+- Vendors/Merch
+- Schedule

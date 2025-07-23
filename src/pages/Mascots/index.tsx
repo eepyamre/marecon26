@@ -1,7 +1,5 @@
 import cn from 'classnames';
 
-import { Pages } from '@/state/types';
-
 import { Page, Photo } from '@/components';
 
 import comfy from '@/assets/comfy.png';
@@ -12,7 +10,7 @@ import css from './styles.module.scss';
 
 export const Mascots = () => {
   return (
-    <Page page={Pages.MASCOTS}>
+    <Page>
       <h1 class={css.title}>Mascots</h1>
       <div class={cn(css.mascotsContainer, css.comfyContainer)}>
         <Photo className={css.comfy} src={comfy}>

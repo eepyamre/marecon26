@@ -1,4 +1,4 @@
-import { Pages } from '@/state/types';
+import { FC } from 'preact/compat';
 
 import { Page } from '@/components';
 
@@ -6,7 +6,7 @@ import css from './styles.module.scss';
 
 export const FAQ = () => {
   return (
-    <Page page={Pages.FAQ}>
+    <Page>
       <h1 class={css.title}>FAQ</h1>
       <div class={css.content}>
         <h2 class={css.subTitle}>What is marecon?</h2>

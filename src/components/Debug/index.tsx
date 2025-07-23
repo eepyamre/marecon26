@@ -1,4 +1,11 @@
-import { hqFulfillment, setHqFulfillment } from '@/state';
+import {
+  applyForPanels,
+  applyForVendors,
+  hqFulfillment,
+  setApplyForPanels,
+  setApplyForVendors,
+  setHqFulfillment,
+} from '@/state';
 
 import css from './styles.module.scss';
 
@@ -11,6 +18,20 @@ export const Debug = () => {
       >
         <span>HQ Fulfillment:</span>
         <span>{String(hqFulfillment.value)}</span>
+      </div>
+      <div
+        class={css.item}
+        onClick={() => setApplyForPanels(!applyForPanels.value)}
+      >
+        <span>Show Apply For Panels Note:</span>
+        <span>{String(applyForPanels.value)}</span>
+      </div>
+      <div
+        class={css.item}
+        onClick={() => setApplyForVendors(!applyForVendors.value)}
+      >
+        <span>Show Apply For Vendors Note:</span>
+        <span>{String(applyForVendors.value)}</span>
       </div>
     </div>
   );

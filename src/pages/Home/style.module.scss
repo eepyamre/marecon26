@@ -5,6 +5,8 @@
 
 .content {
   font-size: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .note {
@@ -50,4 +52,38 @@
     font-size: 2.5rem;
     line-height: 100%;
   }
+}
+
+.vendorsNote,
+.panelsNote {
+  transform: scale(1.05) rotate(2deg);
+  cursor: pointer;
+  font-size: 1.33rem;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05) rotate(-2deg);
+  }
+}
+
+.vendorsNote {
+  transform: scale(1.05) rotate(-4deg);
+
+  &:hover {
+    transform: scale(1.05) rotate(2deg);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin-top: 128px;
 }

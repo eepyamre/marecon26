@@ -1,8 +1,7 @@
-import { Archive } from '@/pages/Archive';
-import { FAQ } from '@/pages/FAQ';
-import { HQ } from '@/pages/HQ';
-import { Home } from '@/pages/Home';
-import { Mascots } from '@/pages/Mascots';
+import { routes } from '@/index';
+import { NotFound } from '@/pages';
+import { withBase } from '@/utils';
+import { Route, Router } from 'preact-iso';
 
 import { Debug, Navigation, Notebook } from '@/components';
 
@@ -14,19 +13,22 @@ export const MainLayout = () => {
   const debug = localStorage.getItem('debug') === 'probably';
 
   return (
-    <>
+    <main>
       {debug && <Debug />}
+
       <Navigation />
       <img src={logo} alt="Logo" class={css.logo} />
       <Notebook>
         <div class={css.pages}>
-          <Home />
-          <Mascots />
-          <HQ />
-          <FAQ />
-          <Archive />
+          <Router>
+            {Object.entries(routes).map(([key, value]) => (
+              <Route key={key} path={withBase(key)} component={value} />
+            ))}
+
+            <Route default component={NotFound} />
+          </Router>
         </div>
       </Notebook>
-    </>
+    </main>
   );
 };

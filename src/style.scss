@@ -11,6 +11,8 @@
     --red: #ed1c24;
     --titleColor: #e06c75;
     --blue: #61afef;
+    --titleFont: 'Caveat', cursive;
+    --textFont: 'Kalam', cursive;
   }
 
   * {
@@ -23,7 +25,7 @@
 
   body {
     background-color: var(--background);
-    font-family: 'Kalam', cursive;
+    font-family: var(--textFont);
     overflow-x: hidden;
   }
 
@@ -45,7 +47,7 @@
   h1,
   h2,
   h3 {
-    font-family: 'Caveat', cursive;
+    font-family: var(--titleFont);
     color: var(--titleColor);
   }
 

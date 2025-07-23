@@ -1,15 +1,13 @@
 import cn from 'classnames';
 
-import { Pages } from '@/state/types';
-
-import { Button, Note, Page, Photo } from '@/components';
+import { Button, Page, Photo } from '@/components';
 
 import paceholder from '../../assets/paceholder.png';
 import css from './styles.module.scss';
 
 export const Archive = () => {
   return (
-    <Page page={Pages.ARCHIVE}>
+    <Page>
       <h1 class={css.title}>Archive</h1>
       <p class={css.description}>A look back at where we've been.</p>
       <div class={css.content}>

@@ -1,7 +1,5 @@
 import cn from 'classnames';
 
-import { Pages } from '@/state/types';
-
 import { hqFulfillment } from '@/state';
 
 import { Button, Note, Page, Photo } from '@/components';
@@ -13,7 +11,7 @@ import css from './styles.module.scss';
 
 export const HQ = () => {
   return (
-    <Page page={Pages.HQ}>
+    <Page>
       <h1 class={css.title}>HQ Info</h1>
       <div class={css.content}>
         <h2 class={css.subTitle}>What is Marecon HQ?</h2>
@@ -38,10 +36,10 @@ export const HQ = () => {
 
         <div class={css.photos}>
           <Photo className={css.photo} src={map}>
-            Secret HQ Location
+            Exact HQ location
           </Photo>
           <Photo className={cn(css.photo, css.photo2)} src={marecon}>
-            Actual interior photo
+            Real interior photo
           </Photo>
         </div>
       </div>

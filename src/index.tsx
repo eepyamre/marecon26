@@ -1,5 +1,4 @@
 import { MainLayout } from '@/layouts/MainLayout';
-import { NotFound } from '@/pages/_404.tsx';
 import '@/style.scss';
 import {
   LocationProvider,
@@ -9,17 +8,20 @@ import {
   prerender as ssr,
 } from 'preact-iso';
 
-import { withBase } from './utils';
+import { Archive, FAQ, HQ, Home, Mascots, NotFound } from './pages';
+
+export const routes = {
+  ['/']: Home,
+  ['/faq']: FAQ,
+  ['/archive']: Archive,
+  ['/hq']: HQ,
+  ['/mascots']: Mascots,
+};
 
 export const App = () => {
   return (
     <LocationProvider>
-      <main>
-        <Router>
-          <Route path={withBase('/')} component={MainLayout} />
-          <Route default component={NotFound} />
-        </Router>
-      </main>
+      <MainLayout />
     </LocationProvider>
   );
 };

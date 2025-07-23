@@ -1,19 +1,15 @@
-import { Pages } from '@/state/types';
-
-import { setPage } from '@/state';
-
 import css from './styles.module.scss';
 
 export const Navigation = () => {
   return (
     <nav class={css.bookmarks}>
-      <div onClick={() => setPage(Pages.HOME)}>Welcome</div>
-      <div onClick={() => setPage(Pages.MASCOTS)}>Mascots</div>
-      <div onClick={() => setPage(Pages.HQ)}>HQ</div>
+      <a href="/">Welcome</a>
+      <a href="/mascots">Mascots</a>
+      <a href="/hq">HQ</a>
       {/* <div>Schedule</div> */}
       {/* <div>Vendors & Merch</div> */}
-      <div onClick={() => setPage(Pages.FAQ)}>FAQ</div>
-      <div onClick={() => setPage(Pages.ARCHIVE)}>Archive</div>
+      <a href="/faq">FAQ</a>
+      <a href="/archive">Archive</a>
     </nav>
   );
 };

@@ -2,6 +2,7 @@ import cn from 'classnames';
 
 import { Button, Page, Photo } from '@/components';
 
+import marecon25 from '../../assets/marecon25.png';
 import paceholder from '../../assets/paceholder.png';
 import css from './styles.module.scss';
 
@@ -12,7 +13,7 @@ export const Archive = () => {
       <p class={css.description}>A look back at where we've been.</p>
       <div class={css.content}>
         <div class={css.item}>
-          <Photo className={css.photo} src={paceholder}>
+          <Photo className={css.photo} src={marecon25}>
             2025
           </Photo>
           <div class={css.itemContent}>

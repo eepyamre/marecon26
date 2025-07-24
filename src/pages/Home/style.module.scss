@@ -54,11 +54,10 @@
   }
 }
 
-.vendorsNote,
-.panelsNote {
-  transform: scale(1.05) rotate(2deg);
+.announcementNote {
+  max-width: 400px;
+  font-size: 1.1rem;
   cursor: pointer;
-  font-size: 1.33rem;
 
   a {
     text-decoration: underline;
@@ -67,23 +66,59 @@
       opacity: 0.75;
     }
   }
-
-  &:hover {
-    transform: scale(1.05) rotate(-2deg);
-  }
 }
 
-.vendorsNote {
-  transform: scale(1.05) rotate(-4deg);
+.vendorsNote,
+.panelsNote {
+  transform: scale(1.05) rotate(-2deg);
+
+  font-size: 1.33rem;
 
   &:hover {
     transform: scale(1.05) rotate(2deg);
   }
 }
 
+.vendorsNote {
+  transform: scale(1.05) rotate(4deg);
+
+  &:hover {
+    transform: scale(1.05) rotate(-4deg);
+  }
+}
+
 .list {
+  display: flex;
+  gap: 64px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sleepy {
+  transform: rotate(8deg);
+  margin-top: 48px;
+
+  div {
+    font-size: 1.5rem !important;
+  }
+}
+
+.announcements {
+  margin-top: 72px;
   display: flex;
   flex-direction: column;
   gap: 64px;
-  margin-top: 128px;
+}
+
+.noteTitle {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.hqNote {
+  transform: scale(1) rotate(-1deg);
+
+  &:hover {
+    transform: scale(1.05) rotate(1deg);
+  }
 }

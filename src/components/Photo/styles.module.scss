@@ -14,10 +14,12 @@
   .textWrapper {
     font-size: 1.7rem;
     background-color: #fff;
-    height: 60px;
+    min-height: 60px;
     padding: 8px;
     text-align: center;
     font-weight: 700;
+    max-width: 300px;
+    padding-bottom: 0;
   }
 
   .imageWrapper {
@@ -33,6 +35,7 @@
       inset: 0;
       background-image: url('../../assets/noise_photo.jpg');
       mix-blend-mode: color-burn;
+      opacity: 0.7;
     }
   }
 

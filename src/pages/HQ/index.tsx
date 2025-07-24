@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { hqFulfillment } from '@/state';
+import { applyForHq, hqFulfillment } from '@/state';
 
 import { Button, Note, Page, Photo } from '@/components';
 
@@ -30,9 +30,9 @@ export const HQ = () => {
               <span>if you want to join next year, just lurk moar</span>
             </Note>
           </>
-        ) : (
+        ) : applyForHq.value ? (
           <Button>Apply</Button>
-        )}
+        ) : null}
 
         <div class={css.photos}>
           <Photo className={css.photo} src={map}>

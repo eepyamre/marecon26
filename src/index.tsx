@@ -1,14 +1,8 @@
 import { MainLayout } from '@/layouts/MainLayout';
-import '@/style.scss';
-import {
-  LocationProvider,
-  Route,
-  Router,
-  hydrate,
-  prerender as ssr,
-} from 'preact-iso';
+import '@/styles.scss';
+import { LocationProvider, hydrate, prerender as ssr } from 'preact-iso';
 
-import { Archive, FAQ, HQ, Home, Mascots, NotFound } from './pages';
+import { Archive, FAQ, HQ, Home, Mascots } from './pages';
 
 export const routes = {
   ['/']: Home,

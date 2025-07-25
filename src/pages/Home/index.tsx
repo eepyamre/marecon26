@@ -6,7 +6,7 @@ import { Note, Page, Photo } from '@/components';
 
 import sleepy from '@/assets/sleepy.png';
 
-import css from './style.module.scss';
+import css from './styles.module.scss';
 
 export const Home = () => {
   return (
@@ -37,7 +37,7 @@ export const Home = () => {
             )}
             {applyForHq.value && (
               <Note className={cn(css.announcementNote, css.hqNote)}>
-                Think you can survive a weekend running the con in person?{' '}
+                Help run the con from the inside.
                 <a href="/hq">The HQ needs new blood.</a>
               </Note>
             )}

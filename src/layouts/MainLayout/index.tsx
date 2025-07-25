@@ -2,6 +2,7 @@ import { routes } from '@/index';
 import { NotFound } from '@/pages';
 import { withBase } from '@/utils';
 import { Route, Router } from 'preact-iso';
+import { useEffect, useState } from 'preact/hooks';
 
 import { Debug, Navigation, Notebook } from '@/components';
 
@@ -10,7 +11,11 @@ import logo from '@/assets/logo.png';
 import css from './styles.module.scss';
 
 export const MainLayout = () => {
-  const debug = localStorage.getItem('debug') === 'probably';
+  const [debug, setDebug] = useState(false);
+
+  useEffect(() => {
+    setDebug(localStorage.getItem('debug') === 'probably');
+  }, []);
 
   return (
     <main>

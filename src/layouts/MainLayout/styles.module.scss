@@ -18,3 +18,13 @@
   top: 16px;
   z-index: 0;
 }
+
+@media (max-width: 900px) {
+  .pages {
+    min-height: 100svh;
+  }
+
+  .logo {
+    display: none;
+  }
+}

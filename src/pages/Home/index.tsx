@@ -1,6 +1,11 @@
 import cn from 'classnames';
 
-import { applyForHq, applyForPanels, applyForVendors } from '@/state';
+import {
+  applyForHq,
+  applyForPanels,
+  applyForVendors,
+  hqFulfillment,
+} from '@/state';
 
 import { Note, Page, Photo } from '@/components';
 
@@ -12,12 +17,13 @@ export const Home = () => {
   return (
     <Page>
       <h1 class={css.title}>Marecon 2026</h1>
-      <div class={css.stamp}>
-        <h3>Date</h3>
-        <span>XX.XX.2026</span>
-      </div>
+
       <div className={css.content}>
         <div className={css.note}>(is not yet started)</div>
+        <div class={css.stamp}>
+          <h3>Date</h3>
+          <span>XX.XX.2026</span>
+        </div>
         <Photo className={css.sleepy} src={sleepy}>
           Shh... They're hybernating untill the big day.
         </Photo>
@@ -35,7 +41,7 @@ export const Home = () => {
                 Want to be a vendor? <a href="#">Apply Here!</a>
               </Note>
             )}
-            {applyForHq.value && (
+            {applyForHq.value && !hqFulfillment.value && (
               <Note className={cn(css.announcementNote, css.hqNote)}>
                 Help run the con from the inside.
                 <a href="/hq">The HQ needs new blood.</a>

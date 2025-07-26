@@ -22,6 +22,9 @@ export const Archive = () => {
                 2025: Marepoint Meltdown
               </a>
             </h2>
+            <Photo className={cn(css.photo, css.photoMobile)} src={marecon25}>
+              2025
+            </Photo>
             <p>
               This was the year of Marepoints, and the glorious,
               totally-not-rigged war between three factions of autists that
@@ -43,6 +46,12 @@ export const Archive = () => {
                 2024: New Beginning
               </a>
             </h2>
+            <Photo
+              className={cn(css.photo, css.photoSecond, css.photoMobile)}
+              src={paceholder}
+            >
+              2024
+            </Photo>
             <p>
               The year the world was formally introduced to The Comfy One, The
               Smiley One, and The Problem Child. They were supposed to be simple

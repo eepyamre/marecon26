@@ -3,6 +3,7 @@
   min-height: calc(100vh - 80px);
   height: fit-content;
   max-width: 900px;
+  min-width: 800px;
   border-top-right-radius: 32px;
   padding-left: 0.6em;
   color: #000;
@@ -60,5 +61,13 @@
       linear-gradient(#0000 0.225em, #fff7 0.28em 0.3em, #0000 0.375em) 80% 0 /
         68% 3vmin repeat-y;
     mask-composite: intersect;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    width: 100%;
+    border-radius: 0;
+    min-width: unset;
   }
 }

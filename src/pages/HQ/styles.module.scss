@@ -68,3 +68,23 @@
 .photo2 {
   transform: rotate(-2deg);
 }
+
+@media (max-width: 900px) {
+  .photo {
+    transform: none;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .photos {
+    gap: 32px;
+  }
+
+  .status {
+    font-size: 2rem;
+  }
+
+  .note {
+    display: none;
+  }
+}

@@ -17,3 +17,16 @@
   cursor: pointer;
   padding: 16px;
 }
+
+@media (max-width: 900px) {
+  .wrapper {
+    z-index: 100;
+    bottom: 16px;
+    top: unset;
+  }
+  .item {
+    font-size: 12px;
+    padding: 8px 12px;
+    justify-content: space-between;
+  }
+}

@@ -39,16 +39,16 @@
     justify-content: center;
   }
 
-  h1 {
-    font-size: 5rem;
-    text-align: center;
-  }
-
   h1,
   h2,
   h3 {
     font-family: var(--titleFont);
     color: var(--titleColor);
+  }
+
+  h1 {
+    font-size: 5rem;
+    text-align: center;
   }
 
   h2 {
@@ -68,5 +68,20 @@
 
   p {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    padding-top: 0;
+  }
+
+  h1 {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
   }
 }

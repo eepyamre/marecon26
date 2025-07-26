@@ -33,3 +33,9 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 900px) {
+  .page {
+    padding-top: 100px;
+  }
+}

@@ -122,3 +122,44 @@
     transform: scale(1.05) rotate(1deg);
   }
 }
+
+@media (max-width: 900px) {
+  .title {
+    padding-top: 0;
+  }
+
+  .sleepy {
+    width: 100%;
+    transform: none;
+    margin-top: 24px;
+    max-width: 400px;
+    align-self: center;
+  }
+
+  .stamp {
+    border-color: var(--titleColor);
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-top: 24px;
+
+    h3,
+    span {
+      color: var(--titleColor);
+    }
+  }
+
+  .announcements {
+    margin-top: 32px;
+    gap: 32px;
+  }
+
+  .announcementNote {
+    transform: none;
+  }
+
+  .list {
+    gap: 12px;
+  }
+}

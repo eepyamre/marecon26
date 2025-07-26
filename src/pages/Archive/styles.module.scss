@@ -47,3 +47,46 @@
     font-size: 18px;
   }
 }
+
+.photoMobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .photo {
+    transform: none;
+    width: 100%;
+    max-width: 300px;
+    display: none;
+
+    &.photoMobile {
+      display: flex;
+    }
+  }
+
+  .itemContent {
+    gap: 24px;
+    align-items: center;
+  }
+
+  .subTitle {
+    border: none;
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
+
+  .item {
+    flex-direction: column !important;
+    align-items: center;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 24px;
+
+    &:last-of-type {
+      border: none;
+    }
+  }
+
+  .content {
+    gap: 16px;
+  }
+}

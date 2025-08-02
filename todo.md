@@ -6,3 +6,4 @@
 - Bg
 - update nawni's pic
 - add stuff to the smiley page
+- comfy page

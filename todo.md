@@ -1,6 +1,6 @@
-- Mobile version
 - Page for each mascot
 - Vendors/Merch
 - Schedule
 - Display random Vendor on the home page
 - Display current panel on the home page
+- Bg

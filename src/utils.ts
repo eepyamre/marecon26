@@ -1,4 +1,3 @@
-const BASE = '';
-export function withBase(path: string): string {
-  return `${BASE}${path}`;
-}
+export const random = (min: number, max: number) => {
+  return Math.random() * (max - min) + min;
+};

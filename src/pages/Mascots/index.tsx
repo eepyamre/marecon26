@@ -47,7 +47,7 @@ export const Mascots = () => {
         </div>
       </div>
 
-      <div class={cn(css.mascotsContainer, css.nawniContainer)}>
+      <a href={'/nawni'} class={cn(css.mascotsContainer, css.nawniContainer)}>
         <Photo className={css.nawni} src={nawniBomb}>
           Nawni
         </Photo>
@@ -62,7 +62,7 @@ export const Mascots = () => {
             same!
           </p>
         </div>
-      </div>
+      </a>
     </Page>
   );
 };

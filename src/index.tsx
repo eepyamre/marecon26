@@ -3,6 +3,7 @@ import '@/styles.scss';
 import { LocationProvider, hydrate, prerender as ssr } from 'preact-iso';
 
 import { Archive, FAQ, HQ, Home, Mascots } from './pages';
+import { Nawni } from './pages/Nawni';
 
 export const routes = {
   ['/']: Home,
@@ -10,6 +11,7 @@ export const routes = {
   ['/archive']: Archive,
   ['/hq']: HQ,
   ['/mascots']: Mascots,
+  ['/nawni']: Nawni,
 };
 
 export const App = () => {

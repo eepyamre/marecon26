@@ -1,6 +1,5 @@
 import { routes } from '@/index';
 import { NotFound } from '@/pages';
-import { withBase } from '@/utils';
 import { Route, Router } from 'preact-iso';
 import { useEffect, useState } from 'preact/hooks';
 
@@ -27,7 +26,7 @@ export const MainLayout = () => {
         <div class={css.pages}>
           <Router>
             {Object.entries(routes).map(([key, value]) => (
-              <Route key={key} path={withBase(key)} component={value} />
+              <Route key={key} path={key} component={value} />
             ))}
 
             <Route default component={NotFound} />

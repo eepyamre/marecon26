@@ -21,6 +21,49 @@
   pointer-events: all;
   user-select: unset;
   animation: slideIn 0.4s forwards ease-in-out;
+
+  &.burn {
+    &::after {
+      position: absolute;
+      content: '';
+      mix-blend-mode: multiply;
+      background-image: url('../../assets/burn.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: 0 100%;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 20%;
+      transform: translateX(50%) translateY(-20px) rotate(90deg);
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      mix-blend-mode: multiply;
+      background-image: url('../../assets/burn.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: 0 100%;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 20%;
+      transform: translateX(60%) rotate(175deg);
+    }
+  }
+}
+
+.coffie {
+  position: absolute;
+  background-image: url('../../assets/coffie.png');
+  width: 250px;
+  height: 250px;
+  left: 43px;
+  bottom: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 @keyframes slideIn {
@@ -37,5 +80,46 @@
 @media (max-width: 900px) {
   .page {
     padding-top: 100px;
+  }
+}
+
+@media (max-width: 550px) {
+  .page.burn {
+    &::after {
+      position: absolute;
+      content: '';
+      mix-blend-mode: multiply;
+      background-image: url('../../assets/burn.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: 0 100%;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 20%;
+      transform: translateX(56%) translateY(-20px) rotate(90deg);
+    }
+    &::before {
+      transform: translateX(60%) translateY(70px) rotate(175deg);
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .page.burn {
+    &::after {
+      position: absolute;
+      content: '';
+      mix-blend-mode: multiply;
+      background-image: url('../../assets/burn.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: 0 100%;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 20%;
+      transform: translateX(60%) translateY(-20px) rotate(90deg);
+    }
   }
 }

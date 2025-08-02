@@ -6,11 +6,12 @@ import css from './styles.module.scss';
 type Props = PropsWithChildren & {
   src: string;
   className?: string;
+  noText?: boolean;
 };
 
-export const Photo: FC<Props> = ({ children, src, className }) => {
+export const Photo: FC<Props> = ({ children, src, className, noText }) => {
   return (
-    <div class={cn(css.wrapper, className)}>
+    <div class={cn(css.wrapper, className, { [css.noText]: noText })}>
       <div class={css.imageWrapper}>
         <img src={src} alt="Photo" />
       </div>

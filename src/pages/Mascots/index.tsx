@@ -12,7 +12,7 @@ export const Mascots = () => {
   return (
     <Page>
       <h1 class={css.title}>Mascots</h1>
-      <div class={cn(css.mascotsContainer, css.comfyContainer)}>
+      <a href={'/comfy'} class={cn(css.mascotsContainer, css.comfyContainer)}>
         <Photo className={css.comfy} src={comfy}>
           Comfy Cuddles
         </Photo>
@@ -28,9 +28,12 @@ export const Mascots = () => {
             two mascots in line.
           </p>
         </div>
-      </div>
+      </a>
 
-      <div class={cn(css.mascotsContainer, css.everymareContainer)}>
+      <a
+        href={'/smiley'}
+        class={cn(css.mascotsContainer, css.everymareContainer)}
+      >
         <Photo className={css.everymare} src={everymare}>
           Smiley Face
         </Photo>
@@ -45,7 +48,7 @@ export const Mascots = () => {
             sunshine that’s always looking to brighten your day!
           </p>
         </div>
-      </div>
+      </a>
 
       <a href={'/nawni'} class={cn(css.mascotsContainer, css.nawniContainer)}>
         <Photo className={css.nawni} src={nawniBomb}>

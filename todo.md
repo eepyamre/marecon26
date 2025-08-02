@@ -5,3 +5,4 @@
 - Display current panel on the home page
 - Bg
 - update nawni's pic
+- add stuff to the smiley page

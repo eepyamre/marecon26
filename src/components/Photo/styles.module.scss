@@ -33,6 +33,11 @@
   padding-bottom: 0;
 }
 
+.noText .textWrapper {
+  padding: 0;
+  min-height: 0;
+}
+
 .imageWrapper {
   position: relative;
   background-color: #eee;

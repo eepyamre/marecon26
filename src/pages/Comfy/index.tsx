@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { Note, Page, Photo } from '@/components';
 
 import comfy from '../../assets/comfy-comfy.png';
+import comfySleep from '../../assets/comfy-sleep.png';
 import css from './styles.module.scss';
 
 export const Comfy = () => {
@@ -35,6 +36,8 @@ export const Comfy = () => {
             </Note>
           </div>
         </div>
+
+        <img src={comfySleep} alt={'sleepy'} />
       </div>
     </Page>
   );

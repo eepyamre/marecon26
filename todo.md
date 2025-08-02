@@ -4,3 +4,4 @@
 - Display random Vendor on the home page
 - Display current panel on the home page
 - Bg
+- update nawni's pic

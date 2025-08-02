@@ -7,7 +7,8 @@
 
 .text {
   font-family: var(--magazine);
-  font-size: 32px;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 1px #333;
 }
 
 .nawniSays {
@@ -44,10 +45,39 @@
 .row {
   display: flex;
   gap: 12px;
-  align-items: center;
+  position: relative;
 
   > div {
     min-width: 300px;
+  }
+
+  p {
+    padding: 12px;
+  }
+}
+
+.commentaryNote {
+  font-size: 1rem;
+  position: absolute;
+  right: 0;
+  bottom: -12px;
+  width: 200px;
+  transform: rotate(3deg);
+
+  strong {
+    text-align: right;
+    padding-top: 4px;
+    display: block;
+  }
+
+  &.comfiesNote {
+    right: 150px;
+    transform: rotate(-6deg);
+    bottom: 120px;
+    display: inline;
+    i {
+      display: inline;
+    }
   }
 }
 

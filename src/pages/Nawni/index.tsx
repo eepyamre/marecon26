@@ -1,7 +1,8 @@
 import { random } from '@/utils';
+import cn from 'classnames';
 import { useEffect, useState } from 'preact/hooks';
 
-import { Page, Photo } from '@/components';
+import { Note, Page, Photo } from '@/components';
 
 import nawniBomb from '@/assets/nawni_bomb.png';
 import thumbUp from '@/assets/thumbup.png';
@@ -10,7 +11,7 @@ import css from './styles.module.scss';
 
 const notes = [
   'do crime my children',
-  'proudly run over 17 griffins with my 2005 DODGE SUPER CREW WITH HEMI',
+  'proudly run over 17 griffins with my 2005 DODGE SUPER CREW with HEMI',
   'forklift certified',
   'i know your ip address.',
   'my special talent is still doing ur mom',
@@ -45,19 +46,24 @@ export const Nawni = () => {
           <img class={css.img} src={thumbUp} alt={'nawni'} />
         </div>
         <div class={css.row}>
+          {/* TODO CHANGE PIC */}
           <Photo className={css.nawni} src={nawniBomb}>
             Nawni
           </Photo>
-          {/* TODO UPDATE */}
           <p>
-            This pony loves to ████! ████████ ████████ is a mysterious pegasus
-            that likes to stay anonymous. She doesn’t like it when we use her
-            real name, so we just call her “Nawni” (get it? Like anonymous!) Her
-            cutie mark is a █████ with █████ - very cool! When we asked her what
-            her special talent was, she said “doing ur mom, lul”. She can be a
-            bit crude and kind of a wildcard at times, but we love her all the
-            same!
+            This pony loves to ████! We just call her "Nawni." Her cutie mark is
+            █████ with █████. That's all we're legally allowed to put here.
           </p>
+          <Note className={cn(css.commentaryNote, css.comfiesNote)} tape>
+            I keep a special, extra-large blanket on hand for her visits. It's
+            mostly for soundproofing. But we <i>still</i> love her
+            <strong>© Comfy</strong>
+          </Note>
+          <Note className={css.commentaryNote} tape>
+            Nawni is super smart! She taught me how to get free Wi-Fi anywhere!
+            My computer makes weird noises now, but the signal is great!
+            <strong>© Smiley</strong>
+          </Note>
         </div>
       </div>
     </Page>

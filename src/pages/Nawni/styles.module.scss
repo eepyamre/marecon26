@@ -93,4 +93,16 @@
   .text {
     font-size: 1.75rem;
   }
+
+  .commentaryNote {
+    left: 0;
+    bottom: 64px;
+    opacity: 0.95;
+
+    &.comfiesNote {
+      right: 0;
+      left: unset;
+      bottom: 270px;
+    }
+  }
 }

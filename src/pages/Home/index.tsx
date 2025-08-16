@@ -9,6 +9,7 @@ import {
 
 import { Note, Page, Photo } from '@/components';
 
+import logo2 from '@/assets/logo2.webp';
 import sleepy from '@/assets/sleepy.png';
 
 import css from './styles.module.scss';
@@ -17,6 +18,7 @@ export const Home = () => {
   return (
     <Page>
       <h1 class={css.title}>Marecon 2026</h1>
+      <img src={logo2} alt="Logo" class={css.logo} />
 
       <div className={css.content}>
         <div className={css.note}>(is not yet started)</div>

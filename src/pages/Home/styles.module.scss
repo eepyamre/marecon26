@@ -123,9 +123,18 @@
   }
 }
 
+.logo {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .title {
     padding-top: 0;
+    display: none;
+  }
+
+  .logo {
+    display: block;
   }
 
   .sleepy {

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import { Debug, Navigation, Notebook } from '@/components';
 
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo1.webp';
 
 import css from './styles.module.scss';
 

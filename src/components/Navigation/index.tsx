@@ -11,7 +11,7 @@ export const Navigation = () => {
       <a href="/faq">FAQ</a>
       <a href="/archive">Archive</a>
       <a href="//shop.marecon.live" target={'_blank'}>
-        MMerch
+        Merch
       </a>
     </nav>
   );

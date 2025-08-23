@@ -2,13 +2,15 @@ import cn from 'classnames';
 
 import { Note, Page, Photo } from '@/components';
 
-import comfy from '../../assets/comfy-comfy.png';
-import comfySleep from '../../assets/comfy-sleep.png';
+import comfyBelly from '../../assets/cc3.png';
+import comfyEmote from '../../assets/comfy-comfy.png';
+import comfy from '../../assets/cuties.png';
 import css from './styles.module.scss';
 
 export const Comfy = () => {
   return (
-    <Page>
+    <Page className={css.page}>
+      <img src={comfyEmote} class={css.comfyEmote} />
       <div class={css.content}>
         <div class={css.row}>
           <Photo src={comfy} className={css.img}>
@@ -30,14 +32,13 @@ export const Comfy = () => {
               <strong>© Smiley</strong>
             </Note>
             <Note className={cn(css.commentaryNote, css.nawnisNote)} tape>
-              She's got 'aura'. And her cocoa is S-tier. Just don't mention the
-              plane incident...
+              She loves to play with her anon plushie. But its a secret. {'>'}co
               <strong>© Nawni</strong>
             </Note>
           </div>
         </div>
 
-        <img src={comfySleep} alt={'sleepy'} />
+        <img src={comfyBelly} alt={'belly'} class={css.belly} />
       </div>
     </Page>
   );

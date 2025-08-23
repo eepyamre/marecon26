@@ -1,3 +1,8 @@
+.page {
+  background: url('../../assets/nw1.png') no-repeat bottom center;
+  background-size: 100px;
+}
+
 .content {
   padding-top: 64px;
   display: flex;
@@ -67,6 +72,10 @@
 
 .photo2 {
   transform: rotate(-2deg);
+
+  div::after {
+    opacity: 0.2;
+  }
 }
 
 @media (max-width: 900px) {

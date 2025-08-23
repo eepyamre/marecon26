@@ -1,3 +1,9 @@
+.page {
+  background: #f6f6f6 url('../../assets/sm1.png') no-repeat;
+  background-size: 200px;
+  background-position: 16px bottom;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -49,7 +55,7 @@
 
 .balloon {
   bottom: 32px;
-  left: 16px;
+  right: 16px;
 }
 
 .commentaryNote {

@@ -3,8 +3,8 @@ import cn from 'classnames';
 import { Page, Photo } from '@/components';
 
 import comfy from '@/assets/comfy.png';
-import everymare from '@/assets/everymare.png';
 import nawniBomb from '@/assets/nawni_bomb.png';
+import smiley from '@/assets/sm1.png';
 
 import css from './styles.module.scss';
 
@@ -30,11 +30,8 @@ export const Mascots = () => {
         </div>
       </a>
 
-      <a
-        href={'/smiley'}
-        class={cn(css.mascotsContainer, css.everymareContainer)}
-      >
-        <Photo className={css.everymare} src={everymare}>
+      <a href={'/smiley'} class={cn(css.mascotsContainer, css.smileyContainer)}>
+        <Photo className={css.smiley} src={smiley}>
           Smiley Face
         </Photo>
         <div class={css.description}>

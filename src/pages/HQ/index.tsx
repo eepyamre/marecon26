@@ -5,13 +5,13 @@ import { applyForHq, hqFulfillment } from '@/state';
 import { Button, Note, Page, Photo } from '@/components';
 
 import map from '@/assets/hq.jpg';
-import marecon from '@/assets/mareocn.png';
+import marecon from '@/assets/marecon_bc_noborder.png';
 
 import css from './styles.module.scss';
 
 export const HQ = () => {
   return (
-    <Page>
+    <Page className={css.page}>
       <h1 class={css.title}>HQ Info</h1>
       <div class={css.content}>
         <h2 class={css.subTitle}>What is Marecon HQ?</h2>
@@ -36,10 +36,10 @@ export const HQ = () => {
 
         <div class={css.photos}>
           <Photo className={css.photo} src={map}>
-            Exact HQ location
+            Location
           </Photo>
           <Photo className={cn(css.photo, css.photo2)} src={marecon}>
-            Real interior photo
+            Inside HQ
           </Photo>
         </div>
       </div>

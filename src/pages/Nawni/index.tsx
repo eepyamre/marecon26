@@ -36,7 +36,7 @@ export const Nawni = () => {
   }, []);
 
   return (
-    <Page stain burn>
+    <Page stain burn className={css.page}>
       <div class={css.content}>
         <div class={css.nawniSays}>
           <div class={css.textWrapper}>

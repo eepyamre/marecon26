@@ -33,9 +33,13 @@
     background-color: var(--background);
     font-family: var(--textFont);
     overflow-x: hidden;
-    background-image: url('./assets/bg.png');
-    background-size: 1984px 1115px;
-    background-position: center bottom;
+    background-image:
+      url('./assets/sm2.png'), url('./assets/cc1.png'), url('./assets/nw2.png');
+    background-size: 300px;
+    background-position:
+      left bottom,
+      right bottom,
+      right top;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
@@ -94,5 +98,21 @@
 
   h2 {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 1360px) {
+  body {
+    background-size: 250px;
+  }
+}
+
+@media (min-width: 1800px) {
+  body {
+    background-size: 350px;
+    background-position:
+      100px bottom,
+      calc(100% - 100px) bottom,
+      calc(100% - 100px) top;
   }
 }

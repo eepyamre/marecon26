@@ -1,3 +1,17 @@
+.page {
+  background: url('../../assets/cutie.png');
+  background-size: 300px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) bottom;
+}
+
+.comfyEmote {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  transform: rotate(180deg);
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -6,6 +20,8 @@
 
 .img {
   min-width: 300px;
+  background: #fff;
+  overflow: hidden;
 
   > div:first-of-type {
     display: flex;
@@ -14,9 +30,16 @@
   }
 
   img {
-    height: 100px;
-    width: auto;
+    height: 125%;
   }
+}
+
+.belly {
+  max-height: 400px;
+  width: fit-content;
+  object-fit: contain;
+  align-self: center;
+  margin-top: 32px;
 }
 
 .row {
@@ -70,6 +93,10 @@
   .img {
     max-width: unset;
     width: 100%;
+
+    img {
+      height: 100%;
+    }
   }
 
   .commentaryNote {
@@ -80,5 +107,9 @@
     &.smileysNote {
       inset: unset;
     }
+  }
+
+  .belly {
+    max-height: 250px;
   }
 }

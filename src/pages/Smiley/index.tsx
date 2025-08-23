@@ -2,8 +2,8 @@ import cn from 'classnames';
 
 import { Note, Page, Photo } from '@/components';
 
-import awards from '../../assets/awards.png';
 import balloon from '../../assets/ballon.png';
+import awards from '../../assets/cutie2.png';
 import smileyImage from '../../assets/everymare.png';
 import flower from '../../assets/flower.png';
 import heart from '../../assets/heart.png';
@@ -13,7 +13,7 @@ import css from './styles.module.scss';
 
 export const Smiley = () => {
   return (
-    <Page>
+    <Page className={css.page}>
       <div class={css.content}>
         <img class={cn(css.img, css.star)} src={star} alt="star" />
         <img class={cn(css.img, css.sun)} src={sun} alt="sun" />

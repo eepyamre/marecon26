@@ -16,8 +16,7 @@ import css from './styles.module.scss';
 
 export const Home = () => {
   return (
-    <Page>
-      <h1 class={css.title}>Marecon 2026</h1>
+    <Page className={css.page}>
       <img src={logo2} alt="Logo" class={css.logo} />
 
       <div className={css.content}>

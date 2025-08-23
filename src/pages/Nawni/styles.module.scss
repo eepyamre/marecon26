@@ -1,3 +1,9 @@
+.page {
+  background: #f6f6f6 url('../../assets/nawnidoingnawnithings.png') no-repeat;
+  background-size: 200px;
+  background-position: calc(100% - 32px) bottom;
+}
+
 .content {
   display: flex;
   flex-direction: column;

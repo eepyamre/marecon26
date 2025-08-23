@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Button, Page, Photo } from '@/components';
 
 import marecon25 from '../../assets/marecon25.png';
-import paceholder from '../../assets/paceholder.png';
+import mareocn from '../../assets/mareocn.png';
 import css from './styles.module.scss';
 
 export const Archive = () => {
@@ -37,7 +37,7 @@ export const Archive = () => {
           </div>
         </div>
         <div class={css.item}>
-          <Photo className={cn(css.photo, css.photoSecond)} src={paceholder}>
+          <Photo className={cn(css.photo, css.photoSecond)} src={mareocn}>
             2024
           </Photo>
           <div class={css.itemContent}>
@@ -48,7 +48,7 @@ export const Archive = () => {
             </h2>
             <Photo
               className={cn(css.photo, css.photoSecond, css.photoMobile)}
-              src={paceholder}
+              src={mareocn}
             >
               2024
             </Photo>

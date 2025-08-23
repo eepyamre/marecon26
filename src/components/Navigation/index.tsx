@@ -10,6 +10,9 @@ export const Navigation = () => {
       {/* <div>Vendors & Merch</div> */}
       <a href="/faq">FAQ</a>
       <a href="/archive">Archive</a>
+      <a href="//shop.marecon.live" target={'_blank'}>
+        MMerch
+      </a>
     </nav>
   );
 };

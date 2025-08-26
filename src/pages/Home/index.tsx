@@ -26,7 +26,7 @@ export const Home = () => {
           <span>XX.XX.2026</span>
         </div>
         <Photo className={css.sleepy} src={sleepy}>
-          Shh... They're hybernating untill the big day.
+          Shh... They're hibernating untill the big day.
         </Photo>
         <div class={css.announcements}>
           <h3 class={css.noteTitle}>Current Happenings:</h3>

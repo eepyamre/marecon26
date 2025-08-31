@@ -1,5 +1,5 @@
 .page {
-  background: url('../../assets/cutie.png');
+  background: url('@/assets/cutie.png');
   background-size: 300px;
   background-repeat: no-repeat;
   background-position: calc(100% - 16px) bottom;
@@ -77,7 +77,109 @@
   }
 }
 
+.lilNawni {
+  width: 100px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  transform: scaleX(-1);
+
+  &.animated {
+    animation: nawniSteal 5s ease-in-out forwards;
+  }
+}
+
+.sweater {
+  width: 100px;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+
+  &.animated {
+    animation: sweaterMove 5s ease-in-out forwards;
+  }
+}
+
+@keyframes nawniSteal {
+  0% {
+    left: 0;
+    transform: translateY(0) rotate(0) scaleX(1);
+  }
+
+  /* small bouncy steps while approaching */
+  10% {
+    transform: translateY(-6px) rotate(-2deg) scaleX(1.03);
+  }
+  20% {
+    transform: translateY(0) rotate(0) scaleX(1);
+  }
+  30% {
+    transform: translateY(-6px) rotate(2deg) scaleX(1.03);
+  }
+
+  /* reach the sweater (hold briefly) */
+  40% {
+    left: calc(50% - 58px - 68px);
+    transform: translateY(-3px) rotate(5deg) scaleX(1);
+  }
+
+  47%,
+  50% {
+    left: calc(50% - 58px - 68px);
+    transform: translateY(-3px) rotate(5deg) scaleX(-1);
+  }
+
+  57%,
+  60% {
+    left: calc(50% - 58px - 68px);
+    transform: translateY(-3px) rotate(5deg) scaleX(1);
+  }
+
+  /* carrying back — rhythmic small steps on the way back */
+  70% {
+    left: calc(40% - 68px);
+    transform: translateY(-6px) rotate(3deg) scaleX(1.02);
+  }
+  85% {
+    left: calc(20% - 68px);
+    transform: translateY(0) rotate(-2deg) scaleX(1.01);
+  }
+
+  100% {
+    left: -32px;
+    transform: translateY(0) rotate(0) scaleX(1);
+  }
+}
+
+@keyframes sweaterMove {
+  0%,
+  40%,
+  60% {
+    left: 50%;
+    transform: translateX(-50%) translateY(0) rotate(0);
+  }
+
+  70% {
+    left: calc(40%);
+    transform: translateX(0) translateY(-6px) rotate(6deg);
+  }
+  85% {
+    left: calc(20% + 10px);
+    transform: translateX(0) translateY(-4px) rotate(10deg);
+  }
+
+  100% {
+    left: -72px;
+    transform: translateX(0) translateY(-2px) rotate(5deg);
+  }
+}
+
 @media (max-width: 900px) {
+  .page {
+    padding-bottom: 320px;
+    background-position: center calc(100% - 140px);
+  }
+
   .row {
     flex-direction: column-reverse;
 
@@ -110,6 +212,6 @@
   }
 
   .belly {
-    max-height: 250px;
+    display: none;
   }
 }

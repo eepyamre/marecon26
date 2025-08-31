@@ -31,7 +31,7 @@
     content: '';
     position: absolute;
     inset: -8px;
-    background-image: url('../../assets/noise.jpeg');
+    background-image: url('@/assets/noise.jpeg');
     mix-blend-mode: lighten;
   }
 

@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useEffect, useState } from 'preact/hooks';
 
 import { Page, Photo } from '@/components';
 

@@ -1,17 +1,30 @@
+import { useScrollHeight } from '@/hooks/useScrollHeight';
 import cn from 'classnames';
+import { useState } from 'preact/hooks';
+
+import { setAccessories } from '@/state';
 
 import { Note, Page, Photo } from '@/components';
 
-import balloon from '../../assets/ballon.png';
-import awards from '../../assets/cutie2.png';
-import smileyImage from '../../assets/everymare.png';
-import flower from '../../assets/flower.png';
-import heart from '../../assets/heart.png';
-import star from '../../assets/star.png';
-import sun from '../../assets/sun.png';
+import balloon from '@/assets/ballon.png';
+import awards from '@/assets/cutie2.png';
+import smileyImage from '@/assets/everymare.png';
+import flower from '@/assets/flower.png';
+import heart from '@/assets/heart.png';
+import lilNawni from '@/assets/lil_nawni.png';
+import clip from '@/assets/smiley_mane_clip.png';
+import star from '@/assets/star.png';
+import sun from '@/assets/sun.png';
+
 import css from './styles.module.scss';
 
 export const Smiley = () => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  useScrollHeight(() => {
+    setIsAnimated(true);
+    setAccessories({ clip: true });
+  });
+
   return (
     <Page className={css.page}>
       <div class={css.content}>
@@ -57,6 +70,20 @@ export const Smiley = () => {
           </div>
           <Photo src={awards} className={css.awards} noText />
         </div>
+      </div>
+      <div class={cn(css.nawniWrapper, { [css.animated]: isAnimated })}>
+        <img
+          src={lilNawni}
+          alt={'lilNawni'}
+          class={cn(css.lilNawni, { [css.animated]: isAnimated })}
+        />
+      </div>
+      <div class={cn(css.clipWrapper, { [css.animated]: isAnimated })}>
+        <img
+          src={clip}
+          alt={'clip'}
+          class={cn(css.clip, { [css.animated]: isAnimated })}
+        />
       </div>
     </Page>
   );

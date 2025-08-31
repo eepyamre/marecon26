@@ -1,8 +1,10 @@
 import {
+  accessoriesCollected,
   applyForHq,
   applyForPanels,
   applyForVendors,
   hqFulfillment,
+  setAccessories,
   setApplyForHq,
   setApplyForPanels,
   setApplyForVendors,
@@ -41,6 +43,34 @@ export const Debug = () => {
       <div class={css.item} onClick={() => setApplyForHq(!applyForHq.value)}>
         <span>Show Apply For HQ button:</span>
         <span>{String(applyForHq.value)}</span>
+      </div>
+
+      <div
+        class={css.item}
+        onClick={() => {
+          if (
+            accessoriesCollected.value.clip &&
+            accessoriesCollected.value.sweater
+          ) {
+            setAccessories({
+              clip: false,
+              sweater: false,
+            });
+            return;
+          }
+          setAccessories({
+            clip: true,
+            sweater: true,
+          });
+        }}
+      >
+        <span>Show Nawni Accessories:</span>
+        <span>
+          {String(
+            accessoriesCollected.value.clip &&
+              accessoriesCollected.value.sweater,
+          )}
+        </span>
       </div>
     </div>
   );

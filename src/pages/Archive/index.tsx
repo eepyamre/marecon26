@@ -2,8 +2,9 @@ import cn from 'classnames';
 
 import { Button, Page, Photo } from '@/components';
 
-import marecon25 from '../../assets/marecon25.png';
-import mareocn from '../../assets/mareocn.png';
+import marecon25 from '@/assets/marecon25.png';
+import mareocn from '@/assets/mareocn.png';
+
 import css from './styles.module.scss';
 
 export const Archive = () => {

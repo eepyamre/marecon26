@@ -1,13 +1,26 @@
+import { useScrollHeight } from '@/hooks/useScrollHeight';
 import cn from 'classnames';
+import { useState } from 'preact/hooks';
+
+import { setAccessories } from '@/state';
 
 import { Note, Page, Photo } from '@/components';
 
-import comfyBelly from '../../assets/cc3.png';
-import comfyEmote from '../../assets/comfy-comfy.png';
-import comfy from '../../assets/cuties.png';
+import comfyEmote from '@/assets/comfy-comfy.png';
+import comfySplat from '@/assets/comfy_splat.png';
+import sweater from '@/assets/comfy_sweater.png';
+import comfy from '@/assets/cuties.png';
+import lilNawni from '@/assets/lil_nawni.png';
+
 import css from './styles.module.scss';
 
 export const Comfy = () => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  useScrollHeight(() => {
+    setIsAnimated(true);
+    setAccessories({ sweater: true });
+  });
+
   return (
     <Page className={css.page}>
       <img src={comfyEmote} class={css.comfyEmote} />
@@ -38,7 +51,18 @@ export const Comfy = () => {
           </div>
         </div>
 
-        <img src={comfyBelly} alt={'belly'} class={css.belly} />
+        <img src={comfySplat} alt={'belly'} class={css.belly} />
+
+        <img
+          src={lilNawni}
+          alt={'lilNawni'}
+          class={cn(css.lilNawni, { [css.animated]: isAnimated })}
+        />
+        <img
+          src={sweater}
+          alt={'sweater'}
+          class={cn(css.sweater, { [css.animated]: isAnimated })}
+        />
       </div>
     </Page>
   );

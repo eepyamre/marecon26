@@ -4,6 +4,10 @@ export const hqFulfillment = signal(false);
 export const applyForHq = signal(false);
 export const applyForPanels = signal(false);
 export const applyForVendors = signal(false);
+export const accessoriesCollected = signal({
+  clip: false,
+  sweater: false,
+});
 
 export const setApplyForHq = (b: boolean) => {
   applyForHq.value = b;
@@ -19,4 +23,13 @@ export const setApplyForPanels = (b: boolean) => {
 
 export const setApplyForVendors = (b: boolean) => {
   applyForVendors.value = b;
+};
+
+export const setAccessories = (
+  value: Partial<{ clip: boolean; sweater: boolean }>,
+) => {
+  accessoriesCollected.value = {
+    ...accessoriesCollected.value,
+    ...value,
+  };
 };

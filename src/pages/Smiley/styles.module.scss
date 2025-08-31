@@ -1,5 +1,5 @@
 .page {
-  background: #f6f6f6 url('../../assets/sm1.png') no-repeat;
+  background: #f6f6f6 url('@/assets/sm1.png') no-repeat;
   background-size: 200px;
   background-position: 16px bottom;
   padding-bottom: 320px;
@@ -92,6 +92,107 @@
 
 .trophyTitle {
   font-size: 2rem;
+}
+
+.nawniWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+
+  &.animated {
+    animation: nawniJumpX 2s ease-in-out forwards;
+  }
+}
+
+.lilNawni {
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: scaleX(-1);
+
+  &.animated {
+    animation: nawniJumpY 2s ease-in-out forwards;
+  }
+}
+
+.clipWrapper {
+  position: absolute;
+  bottom: 150px;
+  right: 200px;
+  width: 100px;
+
+  &.animated {
+    animation: clipMoveX 2s ease-in-out forwards;
+  }
+}
+
+.clip {
+  width: 40px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  &.animated {
+    animation: clipMoveY 2s ease-in-out forwards;
+  }
+}
+
+@keyframes nawniJumpX {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 180px;
+  }
+  100% {
+    right: 250px;
+  }
+}
+
+@keyframes nawniJumpY {
+  0% {
+    bottom: 0;
+    transform: scaleX(-1) rotate(-15deg);
+  }
+  50% {
+    bottom: 150px;
+    transform: scaleX(-1) rotate(0);
+  }
+  60% {
+    transform: scaleX(-1) rotate(360deg);
+  }
+  80% {
+    transform: scaleX(-1) rotate(390deg);
+  }
+  90% {
+    transform: scaleX(-1) rotate(380deg);
+  }
+  100% {
+    bottom: -80px;
+    transform: scaleX(-1) rotate(380deg);
+  }
+}
+
+@keyframes clipMoveX {
+  0%,
+  50% {
+    right: 200px;
+  }
+  100% {
+    right: 250px;
+  }
+}
+
+@keyframes clipMoveY {
+  0%,
+  50% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -220px;
+  }
 }
 
 @media (max-width: 900px) {

@@ -1,7 +1,7 @@
 .page {
-  background: #f6f6f6 url('../../assets/nawnidoingnawnithings.png') no-repeat;
-  background-size: 200px;
-  background-position: calc(100% - 32px) bottom;
+  background: #f6f6f6 url('@/assets/cutiebomb.png') no-repeat;
+  background-size: 250px;
+  background-position: calc(100% + 72px) bottom;
   padding-bottom: 320px;
 }
 
@@ -27,6 +27,10 @@
   justify-content: space-between;
   background-color: var(--orange);
   padding: 12px;
+}
+
+.nawni img {
+  object-fit: contain;
 }
 
 .textWrapper {

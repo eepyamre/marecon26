@@ -50,7 +50,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('../../assets/noise_photo.jpg');
+    background-image: url('@/assets/noise_photo.jpg');
     mix-blend-mode: color-burn;
     opacity: 0.7;
   }

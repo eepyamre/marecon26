@@ -1,5 +1,5 @@
 .page {
-  background: url('../../assets/nw1.png') no-repeat bottom center;
+  background: url('@/assets/nw1.png') no-repeat bottom center;
   background-size: 100px;
   padding-bottom: 220px;
 }
@@ -36,7 +36,7 @@
     content: '';
     position: absolute;
     inset: -5px;
-    background-image: url('../../assets/noise.jpeg');
+    background-image: url('@/assets/noise.jpeg');
     mix-blend-mode: lighten;
   }
 }

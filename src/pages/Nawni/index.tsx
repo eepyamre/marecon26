@@ -2,9 +2,12 @@ import { random } from '@/utils';
 import cn from 'classnames';
 import { useEffect, useState } from 'preact/hooks';
 
+import { accessoriesCollected } from '@/state';
+
 import { Note, Page, Photo } from '@/components';
 
-import nawniBomb from '@/assets/nawni_bomb.png';
+import nawniAccesories from '@/assets/nawni_accesories.png';
+import nawniBomb from '@/assets/nawnidoingnawnithings.png';
 import thumbUp from '@/assets/thumbup.png';
 
 import css from './styles.module.scss';
@@ -46,8 +49,15 @@ export const Nawni = () => {
           <img class={css.img} src={thumbUp} alt={'nawni'} />
         </div>
         <div class={css.row}>
-          {/* TODO CHANGE PIC */}
-          <Photo className={css.nawni} src={nawniBomb}>
+          <Photo
+            className={css.nawni}
+            src={
+              accessoriesCollected.value.clip &&
+              accessoriesCollected.value.sweater
+                ? nawniAccesories
+                : nawniBomb
+            }
+          >
             Nawni
           </Photo>
           <p>

@@ -1,6 +1,5 @@
+import { APPLY_FOR_HQ, HQ_FORM_LINK, HQ_FULFILLMENT } from '@/constants';
 import cn from 'classnames';
-
-import { applyForHq, hqFulfillment } from '@/state';
 
 import { Button, Note, Page, Photo } from '@/components';
 
@@ -22,7 +21,7 @@ export const HQ = () => {
           thread.
         </p>
 
-        {hqFulfillment.value ? (
+        {HQ_FULFILLMENT ? (
           <>
             <div class={css.status}>Status: FULL</div>
             <Note className={css.note}>
@@ -30,8 +29,10 @@ export const HQ = () => {
               <span>if you want to join next year, just lurk moar</span>
             </Note>
           </>
-        ) : applyForHq.value ? (
-          <Button>Apply</Button>
+        ) : APPLY_FOR_HQ ? (
+          <Button target="_blank" href={HQ_FORM_LINK}>
+            Apply
+          </Button>
         ) : null}
 
         <div class={css.photos}>

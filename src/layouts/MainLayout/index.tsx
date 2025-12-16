@@ -1,25 +1,16 @@
 import { routes } from '@/index';
 import { NotFound } from '@/pages';
 import { Route, Router } from 'preact-iso';
-import { useEffect, useState } from 'preact/hooks';
 
-import { Debug, Navigation, Notebook } from '@/components';
+import { Navigation, Notebook } from '@/components';
 
 import logo from '@/assets/logo1.webp';
 
 import css from './styles.module.scss';
 
 export const MainLayout = () => {
-  const [debug, setDebug] = useState(false);
-
-  useEffect(() => {
-    setDebug(localStorage.getItem('debug') === 'probably');
-  }, []);
-
   return (
     <main>
-      {debug && <Debug />}
-
       <Navigation />
       <img src={logo} alt="Logo" class={css.logo} />
       <Notebook>

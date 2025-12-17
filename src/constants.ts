@@ -9,4 +9,4 @@ export const VOLUNTEER_FORM_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSehlwwDOVW8ZE8riaGSu_oz58biLmgYNHgihg_Y8x3pIWv_XQ/viewform';
 export const PANELS_FORM_LINK = '';
 export const VENDORS_FORM_LINK = '';
-export const THREAD_LINK = 'https://desuarchive.org/mlp/thread/41996918/';
+export const THREAD_LINK = 'https://boards.4chan.org/mlp/thread/42881327';

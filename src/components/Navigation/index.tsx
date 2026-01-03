@@ -8,9 +8,7 @@ export const Navigation = () => {
       <a href="/">Welcome</a>
       <a href="/mascots">Mascots</a>
       <a href="/hq">HQ</a>
-      {/* <a href="/schedule" >
-        Schedule
-      </a> */}
+      <a href="/schedule">Schedule</a>
       {/* <a href="/vendors" >
         Vendors
       </a> */}

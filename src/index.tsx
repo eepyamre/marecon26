@@ -2,7 +2,17 @@ import { MainLayout } from '@/layouts/MainLayout';
 import '@/styles.scss';
 import { LocationProvider, hydrate, prerender as ssr } from 'preact-iso';
 
-import { Archive, Comfy, FAQ, HQ, Home, Mascots, Nawni, Smiley } from './pages';
+import {
+  Archive,
+  Comfy,
+  FAQ,
+  HQ,
+  Home,
+  Mascots,
+  Nawni,
+  Schedule,
+  Smiley,
+} from './pages';
 
 export const routes = {
   ['/']: Home,
@@ -13,6 +23,7 @@ export const routes = {
   ['/nawni']: Nawni,
   ['/smiley']: Smiley,
   ['/comfy']: Comfy,
+  ['/schedule']: Schedule,
 };
 
 export const App = () => {

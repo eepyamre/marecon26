@@ -13,7 +13,8 @@ import cn from 'classnames';
 import { Note, Page, Photo } from '@/components';
 
 import logo2 from '@/assets/logo2.webp';
-import sleepy from '@/assets/sleepy.png';
+// import sleepy from '@/assets/sleepy.png';
+import snowpityyy from '@/assets/snowpityyy.png';
 
 import css from './styles.module.scss';
 
@@ -23,30 +24,30 @@ export const Home = () => {
       <img src={logo2} alt="Logo" class={css.logo} />
 
       <div className={css.content}>
-        <div className={css.note}>(is not yet started)</div>
+        <div className={css.note}>(soon™)</div>
         <div class={css.stamp}>
           <h3>Date</h3>
-          <span>XX.XX.2026</span>
+          <span>March 27-29</span>
         </div>
-        <Photo className={css.sleepy} src={sleepy}>
-          Shh... They're hibernating until the big day.
+        <Photo className={css.sleepy} src={snowpityyy}>
+          Look at them go!
         </Photo>
         <div class={css.announcements}>
           <h3 class={css.noteTitle}>Current Happenings:</h3>
           <div class={css.list}>
-            {APPLY_FOR_PANELS && (
-              <Note className={cn(css.announcementNote, css.panelsNote)}>
-                Panel submissions are now OPEN!{' '}
-                <a href={PANELS_FORM_LINK} target="_blank">
-                  Got an idea? Apply NOW!
-                </a>
-              </Note>
-            )}
             {APPLY_FOR_VENDORS && (
               <Note className={cn(css.announcementNote, css.vendorsNote)}>
                 Want to be a vendor?{' '}
                 <a href={VENDORS_FORM_LINK} target="_blank">
                   Apply Here!
+                </a>
+              </Note>
+            )}
+            {APPLY_FOR_PANELS && (
+              <Note className={cn(css.announcementNote, css.panelsNote)}>
+                Panel submissions are now OPEN!{' '}
+                <a href={PANELS_FORM_LINK} target="_blank">
+                  Got an idea? Apply NOW!
                 </a>
               </Note>
             )}

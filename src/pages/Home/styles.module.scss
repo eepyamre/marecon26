@@ -95,6 +95,10 @@
 
   div {
     font-size: 1.5rem !important;
+
+    &:first-of-type {
+      aspect-ratio: 1.5/1;
+    }
   }
 }
 

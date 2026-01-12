@@ -11,4 +11,4 @@ export const PANELS_FORM_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSetReqwnBmOUzoJwVRwuOQElmRLjQ1ODXYCQ2efooyrg5QTKw/closedform';
 export const VENDORS_FORM_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSePs4cjdZDOAe9z6mLDCzHDvCNtPbcb3yXGKIkl-B497qTLzg/closedform';
-export const THREAD_LINK = 'https://boards.4chan.org/mlp/thread/42881327';
+export const THREAD_LINK = 'https://boards.4chan.org/mlp/thread/42948899';

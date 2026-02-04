@@ -1,123 +1,199 @@
-import { FC, useEffect, useRef, useState } from 'preact/compat';
+import { PANELS_FORM_LINK } from '@/constants';
+import { showTooltip, tooltipRef } from '@/layouts/MainLayout';
+import { signal } from '@preact/signals';
+import { FunctionalComponent } from 'preact';
 
-import { Button, Page, Tooltip } from '@/components';
+import { Button, Page } from '@/components';
 
 import css from './styles.module.scss';
 import { TrackData, useSchedule } from './useSchedue';
 
 type ScheduleProps = {
   day?: string;
+  path?: string;
 };
 
-export const Schedule: FC<ScheduleProps> = ({ day = 'friday' }) => {
+const progress = signal<number>(0);
+let currentAnimationId: number | null = null;
+
+export const closeTooltip = () => {
+  if (currentAnimationId) {
+    cancelAnimationFrame(currentAnimationId);
+    currentAnimationId = null;
+  }
+
+  if (!tooltipRef.value) return;
+  tooltipRef.value.style['--x'] = `0px`;
+  tooltipRef.value.style['--y'] = `0px`;
+  showTooltip.value = false;
+  tooltipRef.value.lastChild.textContent = '';
+  if (tooltipRef.value) {
+    tooltipRef.value.style.setProperty('--progress', '0%');
+  }
+  progress.value = 0;
+};
+
+export const Schedule: FunctionalComponent<ScheduleProps> = ({
+  day = 'friday',
+}) => {
   const { events, times } = useSchedule(day);
 
-  const [tooltipData, setTooltipData] = useState({
-    position: [0, 0] as [number, number],
-    text: '',
-    visible: false,
-  });
+  const isMobile = () => window.innerWidth <= 768;
 
-  useEffect(() => {
-    const fn = (e: TouchEvent) => {
-      if (tooltipData.visible) {
-        e.preventDefault();
-        setTooltipData({
-          position: [0, 0],
-          visible: false,
-          text: '',
-        });
+  const animateBorder = () => {
+    if (currentAnimationId) {
+      cancelAnimationFrame(currentAnimationId);
+    }
+
+    const startTime = performance.now();
+    const duration = 1000;
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const newProgress = Math.min((elapsed / duration) * 100, 100);
+
+      progress.value = newProgress;
+
+      if (tooltipRef.value) {
+        tooltipRef.value.style.setProperty('--progress', `${newProgress}%`);
+      }
+
+      if (newProgress < 100) {
+        currentAnimationId = requestAnimationFrame(animate);
+      } else {
+        currentAnimationId = null;
       }
     };
 
-    addEventListener('touchend', fn);
-    return () => {
-      removeEventListener('touchend', fn);
-    };
-  }, [tooltipData]);
+    currentAnimationId = requestAnimationFrame(animate);
+  };
 
   const mouseMove = (e: MouseEvent) => {
-    if (e.target instanceof HTMLElement && e.target.dataset.trackdescription) {
-      const dw = Math.max(0, window.innerWidth - 900) / 2;
-      setTooltipData({
-        position: [
-          e.clientX - 24 - dw,
-          e.clientY - 48 + document.scrollingElement.scrollTop,
-        ],
-        visible: true,
-        text: e.target.dataset.trackdescription,
-      });
+    if (!tooltipRef.value) {
+      showTooltip.value = true;
+      queueMicrotask(() => mouseMove(e));
       return;
     }
-    if (tooltipData.visible) {
-      setTooltipData({
-        position: [0, 0],
-        visible: false,
-        text: '',
-      });
+    if (e.target instanceof HTMLElement && e.target.dataset.trackdescription) {
+      if (isMobile()) {
+        return;
+      }
+
+      if (progress.value >= 100) {
+        return;
+      }
+
+      const dw = tooltipRef.value.clientWidth / 2;
+      tooltipRef.value.style.setProperty('--x', `${e.clientX - 24 - dw}px`);
+      tooltipRef.value.style.setProperty('--y', `${e.clientY + 24}px`);
+
+      showTooltip.value = true;
+      tooltipRef.value.lastChild.textContent =
+        e.target.dataset.trackdescription;
+
+      if (!currentAnimationId) {
+        progress.value = 0;
+        tooltipRef.value.style.setProperty('--progress', '0%');
+        requestAnimationFrame(() => {
+          animateBorder();
+        });
+      }
+      return;
+    }
+  };
+
+  const onClick = (e: MouseEvent) => {
+    if (!isMobile()) {
+      if (progress.value === 100) closeTooltip();
+      return;
+    }
+    if (e.target instanceof HTMLElement && e.target.dataset.trackdescription) {
+      showTooltip.value = true;
+      tooltipRef.value.lastChild.textContent =
+        e.target.dataset.trackdescription;
+      tooltipRef.value.style.setProperty('--y', `${e.clientY + 24}px`);
+    } else {
+      closeTooltip();
     }
   };
 
   const mouseOut = () => {
-    setTooltipData({
-      position: [0, 0],
-      visible: false,
-      text: '',
-    });
+    if (isMobile()) {
+      return;
+    }
+
+    if (progress.value < 100) {
+      closeTooltip();
+    }
   };
 
   return (
-    <Page className={css.wrapper}>
-      <h1 class={css.title}>Schedule</h1>
-      <div class={css.nav}>
-        <Button className={css.btn} href={'/schedule/friday'}>
-          Friday
-        </Button>
-        <Button className={css.btn} href={'/schedule/saturday'}>
-          Saturday
-        </Button>
-        <Button className={css.btn} href={'/schedule/sunday'}>
-          Sunday
-        </Button>
-      </div>
+    <>
+      <Page className={css.wrapper}>
+        <h1 class={css.title}>Schedule</h1>
+        <noscript>
+          <p style={{ textAlign: 'center' }}>
+            Can't fetch the schedule with JavaScript turned off. ucu
+          </p>
+        </noscript>
+        <div class={css.nav}>
+          <Button className={css.btn} href={'/schedule/friday'}>
+            Friday
+          </Button>
+          <Button className={css.btn} href={'/schedule/saturday'}>
+            Saturday
+          </Button>
+          <Button className={css.btn} href={'/schedule/sunday'}>
+            Sunday
+          </Button>
+        </div>
 
-      <div class={css.schedule} onMouseMove={mouseMove} onMouseOut={mouseOut}>
-        <div class={css.times}>
-          <div class={css.timeTitle} />
-          {times.map((time, i) => {
-            return (
-              <div class={css.time} key={i}>
-                {time.toLocaleTimeString(undefined, {
-                  hour12: true,
-                  hour: '2-digit',
-                  minute: '2-digit',
-                  // timeZone: '-05:00',
-                })}
-              </div>
-            );
-          })}
-        </div>
-        <div class={css.track}>
-          {Track(events.track1, 1, 'https://cytu.be/r/marecon')}
-        </div>
-        <div class={css.track}>
-          {Track(events.track2, 2, 'https://cytu.be/r/marecon2-comfys-cottage')}
-        </div>
-      </div>
-      <div className={css.row}>
-        <p class={css.hint}>Time is adjusted according to (you)r time zone!</p>
-        {/* <a
-          class={`global_btn ${css.apply}`}
-          target={'_blank'}
-          href={'https://forms.gle/kXxHwiyC1iBdmTFT8'}
+        <div
+          class={css.schedule}
+          onMouseMove={mouseMove}
+          onMouseOut={mouseOut}
+          onClick={onClick}
         >
-          Apply for panels!
-        </a> */}
-      </div>
-      {tooltipData.visible && (
-        <Tooltip position={tooltipData.position}>{tooltipData.text}</Tooltip>
-      )}
-    </Page>
+          <div class={css.times}>
+            <div class={css.timeTitle} />
+            {times.map((time, i) => {
+              return (
+                <div class={css.time} key={i}>
+                  {time.toLocaleTimeString(undefined, {
+                    hour12: true,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    timeZone: '-05:00',
+                  })}
+                </div>
+              );
+            })}
+          </div>
+          <div class={css.track}>
+            {Track(events.track1, 1, 'https://cytu.be/r/marecon')}
+          </div>
+          <div class={css.track}>
+            {Track(
+              events.track2,
+              2,
+              'https://cytu.be/r/marecon2-comfys-cottage',
+            )}
+          </div>
+        </div>
+        <div className={css.row}>
+          <p class={css.hint}>
+            Time is adjusted according to (you)r time zone!
+          </p>
+          <Button
+            className={css.apply}
+            target={'_blank'}
+            href={PANELS_FORM_LINK}
+          >
+            Apply for panels!
+          </Button>
+        </div>
+      </Page>
+    </>
   );
 };
 

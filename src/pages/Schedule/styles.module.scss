@@ -117,8 +117,38 @@
   }
 }
 
+.apply {
+  margin-left: auto;
+  margin-top: 0;
+  position: absolute;
+  top: 64px;
+  right: 16px;
+  transform: rotate(15deg);
+  font-size: 1rem;
+
+  &:hover {
+    transform: rotate(15deg) scale(1.1);
+  }
+}
+
 @media (max-width: 900px) {
   .btn {
     font-size: 1rem;
+  }
+
+  .apply {
+    position: static;
+    top: unset;
+    bottom: unset;
+    transform: unset;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
   }
 }

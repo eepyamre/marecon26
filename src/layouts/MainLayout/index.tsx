@@ -1,12 +1,16 @@
 import { routes } from '@/index';
 import { NotFound, Schedule } from '@/pages';
+import { signal } from '@preact/signals';
 import { Route, Router } from 'preact-iso';
 
-import { Navigation, Notebook } from '@/components';
+import { Navigation, Notebook, Tooltip } from '@/components';
 
 import logo from '@/assets/logo1.webp';
 
 import css from './styles.module.scss';
+
+export const showTooltip = signal(false);
+export const tooltipRef = signal<HTMLDivElement | null>(null);
 
 export const MainLayout = () => {
   return (
@@ -27,6 +31,13 @@ export const MainLayout = () => {
           </Router>
         </div>
       </Notebook>
+      {showTooltip.value && (
+        <Tooltip
+          ref={(data) => {
+            tooltipRef.value = data;
+          }}
+        />
+      )}
     </main>
   );
 };

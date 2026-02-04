@@ -34,7 +34,7 @@ export const useSchedule = (day: string) => {
 
   const fetchData = async () => {
     // TODO: url
-    const response = await fetch('https://2025.marecon.live/schedule.json');
+    const response = await fetch('/schedule.json');
     const result = (await response.json()) as {
       title: string;
       from: string;

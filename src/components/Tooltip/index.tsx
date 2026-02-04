@@ -1,19 +1,17 @@
-import { FunctionComponent } from 'preact';
+import { closeTooltip } from '@/pages';
+import { PropsWithChildren, forwardRef } from 'preact/compat';
+
 import css from './style.module.scss';
 
-export const Tooltip: FunctionComponent<{ position: [number, number] }> = ({
-  children,
-  position,
-}) => {
-  return (
-    <div
-      class={css.tooltip}
-      style={{
-        '--x': `${position[0]}px`,
-        '--y': `${position[1]}px`,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
+export const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren>(
+  ({ children }, ref) => {
+    return (
+      <div class={css.tooltip} ref={ref}>
+        <button class={css.closeButton} onClick={() => closeTooltip()}>
+          ×
+        </button>
+        <span>{children}</span>
+      </div>
+    );
+  },
+);

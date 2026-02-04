@@ -7,3 +7,4 @@ export * from './_404';
 export * from './Nawni';
 export * from './Comfy';
 export * from './Smiley';
+export * from './Schedule';

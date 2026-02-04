@@ -4,3 +4,4 @@ export * from './Navigation';
 export * from './Photo';
 export * from './Button';
 export * from './Note';
+export * from './Tooltip';

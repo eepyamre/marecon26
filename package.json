@@ -4,11 +4,14 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
-    "preview": "vite preview --port 3000"
+    "preview": "vite preview --port 3000",
+    "schedule": "node ./getSchedule.js"
   },
   "dependencies": {
     "@preact/signals": "^2.2.1",
     "classnames": "^2.5.1",
+    "googleapis": "^171.2.0",
+    "node-cron": "^4.2.1",
     "preact": "^10.22.1",
     "preact-iso": "^2.8.1",
     "preact-render-to-string": "^6.5.11"

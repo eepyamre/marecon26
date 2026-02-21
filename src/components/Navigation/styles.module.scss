@@ -1,7 +1,7 @@
 .bookmarks {
   position: fixed;
   font-size: 1.1rem;
-  top: max(40%, 460px);
+  top: max(40%, 520px);
   width: 70%;
   max-width: 900px;
   min-width: 800px;
@@ -46,6 +46,7 @@
 
       &::after {
         bottom: -10px;
+        height: 11px;
       }
     }
   }

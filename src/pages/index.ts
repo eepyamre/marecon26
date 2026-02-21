@@ -8,3 +8,4 @@ export * from './Nawni';
 export * from './Comfy';
 export * from './Smiley';
 export * from './Schedule';
+export * from './Vendors';

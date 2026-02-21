@@ -12,6 +12,7 @@ import {
   Nawni,
   Schedule,
   Smiley,
+  Vendors,
 } from './pages';
 
 export const routes = {
@@ -24,6 +25,7 @@ export const routes = {
   ['/smiley']: Smiley,
   ['/comfy']: Comfy,
   ['/schedule']: Schedule,
+  ['/vendors']: Vendors,
 };
 
 export const App = () => {

@@ -9,9 +9,7 @@ export const Navigation = () => {
       <a href="/mascots">Mascots</a>
       <a href="/hq">HQ</a>
       <a href="/schedule">Schedule</a>
-      {/* <a href="/vendors" >
-        Vendors
-      </a> */}
+      <a href="/vendors">Vendors</a>
       <a href="/faq">FAQ</a>
       <a href="/archive">Archive</a>
       <a href="//shop.marecon.live" target={'_blank'}>

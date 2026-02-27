@@ -163,7 +163,7 @@ export const Schedule: FunctionalComponent<ScheduleProps> = ({
                     hour12: true,
                     hour: '2-digit',
                     minute: '2-digit',
-                    timeZone: '-05:00',
+                    // timeZone: '-05:00',
                   })}
                 </div>
               );
@@ -182,7 +182,7 @@ export const Schedule: FunctionalComponent<ScheduleProps> = ({
         </div>
         <div className={css.row}>
           <p class={css.hint}>
-            Time is adjusted according to (you)r time zone!
+            Time is adjusted according to (you)r time zone! Now for real!
           </p>
           <Button
             className={css.apply}

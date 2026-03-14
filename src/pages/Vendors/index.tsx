@@ -89,6 +89,18 @@ const vendors: Vendor[] = [
     ],
     url: 'https://ko-fi.com/floralsh_tpost/shop',
   },
+  {
+    name: 'Born to Silly',
+    description:
+      'A heartfelt art pack featuring adorable foals and more! Created to raise funds for children in need.',
+    images: [
+      '/vendors/borntosilly/1.webp',
+      '/vendors/borntosilly/2.webp',
+      '/vendors/borntosilly/3.jpg',
+      '/vendors/borntosilly/4.webp',
+    ],
+    url: 'https://borntosilly.com/',
+  },
 ];
 
 export const Vendors = () => {

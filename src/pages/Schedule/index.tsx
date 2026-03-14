@@ -179,6 +179,13 @@ export const Schedule: FunctionalComponent<ScheduleProps> = ({
               'https://cytu.be/r/marecon2-comfys-cottage',
             )}
           </div>
+          <div class={css.track}>
+            {Track(
+              events.track3,
+              3,
+              'https://cytu.be/r/marecon3-smileys-studio',
+            )}
+          </div>
         </div>
         <div className={css.row}>
           <p class={css.hint}>

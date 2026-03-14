@@ -14,9 +14,11 @@ export const useSchedule = (day: string) => {
   const [events, setEvents] = useState<{
     track1: TrackData[];
     track2: TrackData[];
+    track3: TrackData[];
   }>({
     track1: [],
     track2: [],
+    track3: [],
   });
 
   const dayIdx = (() => {
@@ -45,6 +47,7 @@ export const useSchedule = (day: string) => {
     }[][];
     let track1: TrackData[] = [];
     let track2: TrackData[] = [];
+    let track3: TrackData[] = [];
 
     const parseTracks = (data: (typeof result)[0]) => {
       const track: TrackData[] = [];
@@ -67,6 +70,7 @@ export const useSchedule = (day: string) => {
           const endTime = next.unixtime;
           const diffBlocks =
             (endTime - startTime.getTime()) / 1000 / 60 / 15 - obj.width;
+
           for (let j = 0; j < diffBlocks; j++) {
             track.push(null);
           }
@@ -82,18 +86,24 @@ export const useSchedule = (day: string) => {
     const r2 = result[dayIdx].filter((item) =>
       item.ch.includes('https://cytu.be/r/marecon2-comfys-cottage'),
     );
+    const r3 = result[dayIdx].filter((item) =>
+      item.ch.includes('https://cytu.be/r/marecon3-smileys-studio'),
+    );
 
     track1 = parseTracks(r1);
     track2 = parseTracks(r2);
+    track3 = parseTracks(r3);
 
     const obj: typeof events = {
       track1,
       track2,
+      track3,
     };
 
     const t0Time = track1[0]?.time.getTime();
     const t1Time = track2[0]?.time.getTime();
-    let startTime = t0Time < t1Time ? t0Time : t1Time;
+    const t2Time = track3[0]?.time.getTime();
+    let startTime = Math.min(t0Time, t1Time, t2Time);
     let lastTime = startTime + min15;
     let times: Date[] = [new Date(startTime)];
 
@@ -109,11 +119,24 @@ export const useSchedule = (day: string) => {
     for (let i = track2.length - 1; i >= 0; i--) {
       const item = track2[i];
       if (item) {
-        const time = item.time.getTime();
-
         const skipped = track2.length - 1 - i;
+        const time = item.time.getTime() + item.width * min15 + skipped * min15;
+
         if (time >= lastTime) {
-          lastTime = item.time.getTime() + item.width * min15 + skipped * min15;
+          lastTime = time;
+        }
+        break;
+      }
+    }
+
+    for (let i = track3.length - 1; i >= 0; i--) {
+      const item = track3[i];
+      if (item) {
+        const skipped = track3.length - 1 - i;
+        const time = item.time.getTime() + item.width * min15 + skipped * min15;
+
+        if (time >= lastTime) {
+          lastTime = time;
         }
         break;
       }
@@ -122,24 +145,27 @@ export const useSchedule = (day: string) => {
     for (let i = startTime + min15; i < lastTime; i += min15) {
       times.push(new Date(i));
     }
-    const arr1 = [];
-    const arr2 = [];
 
-    if (t0Time < t1Time) {
-      let l = Math.round((t1Time - t0Time) / min15);
-      while (l--) {
-        track2.unshift(null);
-      }
-    }
-    if (t1Time < t0Time) {
-      let l = Math.round((t0Time - t1Time) / min15);
+    debugger;
+    if (t0Time > startTime) {
+      let l = Math.round((t0Time - startTime) / min15);
       while (l--) {
         track1.unshift(null);
       }
     }
+    if (t1Time > startTime) {
+      let l = Math.round((t1Time - startTime) / min15);
+      while (l--) {
+        track2.unshift(null);
+      }
+    }
+    if (t2Time > startTime) {
+      let l = Math.round((t2Time - startTime) / min15);
+      while (l--) {
+        track3.unshift(null);
+      }
+    }
 
-    track1.unshift(...arr1);
-    track2.unshift(...arr2);
     setTimes(times);
     setEvents(obj);
   };

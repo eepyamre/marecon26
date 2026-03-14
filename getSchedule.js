@@ -87,31 +87,32 @@ const getSchedule = async () => {
   const cells = await googleSheets.spreadsheets.values.get({
     auth,
     spreadsheetId,
-    range: 'Sheet1!A6:D228',
+    range: 'Sheet1!A6:E228',
   });
   const rawCells = sheet.data.sheets[0].data[0].rowData;
 
   const channels = [
     'https://cytu.be/r/marecon',
     'https://cytu.be/r/marecon2-comfys-cottage',
+    'https://cytu.be/r/marecon3-smileys-studio',
   ];
   const merges = sheet.data.sheets[0].merges;
   const rows = cells.data.values;
 
   let day = 0;
-  let date = '2025-02-28';
+  let date = '2026-03-27';
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
     const rowIdx = i + 5;
     if (rowIdx === 54) {
-      date = '2025-03-01';
+      date = '2025-03-28';
     }
     if (rowIdx === 71) {
       day++;
       continue;
     }
     if (rowIdx === 134) {
-      date = '2025-03-02';
+      date = '2025-03-29';
     }
     if (rowIdx === 153) {
       day++;

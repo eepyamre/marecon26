@@ -105,14 +105,14 @@ const getSchedule = async () => {
     const row = rows[i];
     const rowIdx = i + 5;
     if (rowIdx === 54) {
-      date = '2025-03-28';
+      date = '2026-03-28';
     }
     if (rowIdx === 71) {
       day++;
       continue;
     }
     if (rowIdx === 134) {
-      date = '2025-03-29';
+      date = '2026-03-29';
     }
     if (rowIdx === 153) {
       day++;

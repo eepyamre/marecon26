@@ -101,6 +101,35 @@ const vendors: Vendor[] = [
     ],
     url: 'https://borntosilly.com/',
   },
+  {
+    name: 'Blue Fast Studios',
+    description:
+      'Provider of amarezing 3D printed pony figures of some of your favorite mares, and some other little knickknacks too!',
+    images: [
+      '/vendors/bluefast/1.jpg',
+      '/vendors/bluefast/2.jpg',
+      '/vendors/bluefast/3.jpg',
+    ],
+    url: 'https://bluefaststud.io/',
+  },
+  {
+    name: 'snowpity.shop',
+    description: "Soap 'n Sniff",
+    images: ['/vendors/snowpity/1.jpg'],
+    url: 'https://snowpity.shop/',
+  },
+  {
+    name: 'Bone x Pixx',
+    description:
+      "We're Bone x Pixx, a fandom duo who has been cooking up tons of mare-velous keychains, dakis, pillows, prints, buttons, you name it! We offer commissions for those looking for something more specific and there are very few limits to what we'll create so don't be shy! ",
+    images: [
+      '/vendors/bonepixx/0.webp',
+      '/vendors/bonepixx/1.jpg',
+      '/vendors/bonepixx/2.jpg',
+      '/vendors/bonepixx/3.webp',
+    ],
+    url: 'https://www.etsy.com/shop/bonexpixx',
+  },
 ];
 
 export const Vendors = () => {

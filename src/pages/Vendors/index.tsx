@@ -130,6 +130,18 @@ const vendors: Vendor[] = [
     ],
     url: 'https://www.etsy.com/shop/bonexpixx',
   },
+  {
+    name: 'shop.mares.horse',
+    description:
+      "Real leather wallets with your waifu's cutiemark! Featuring a new bifold wallet that's slightly nicer and comes in way more colors! To increase the amount of pony in your daily life, a record player slipmat featuring Vinyl Scratch will also be available once the con starts!",
+    images: [
+      '/vendors/shopmares/0.jpg',
+      '/vendors/shopmares/1.jpg',
+      '/vendors/shopmares/2.png',
+      '/vendors/shopmares/3.png',
+    ],
+    url: 'https://shop.mares.horse/',
+  },
 ];
 
 export const Vendors = () => {

@@ -159,9 +159,9 @@ export const Vendors = () => {
           />
         ))}
       </div>
-      <Button className={css.apply} target={'_blank'} href={VENDORS_FORM_LINK}>
+      {/* <Button className={css.apply} target={'_blank'} href={VENDORS_FORM_LINK}>
         Apply to be a vendor!
-      </Button>
+      </Button> */}
     </Page>
   );
 };

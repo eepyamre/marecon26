@@ -191,13 +191,13 @@ export const Schedule: FunctionalComponent<ScheduleProps> = ({
           <p class={css.hint}>
             Time is adjusted according to (you)r time zone! Now for real!
           </p>
-          <Button
+          {/* <Button
             className={css.apply}
             target={'_blank'}
             href={PANELS_FORM_LINK}
           >
             Apply for panels!
-          </Button>
+          </Button> */}
         </div>
       </Page>
     </>

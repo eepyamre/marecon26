@@ -1,7 +1,7 @@
-export const APPLY_FOR_HQ = true;
-export const APPLY_VOLUNTEER = true;
-export const APPLY_FOR_PANELS = true;
-export const APPLY_FOR_VENDORS = true;
+export const APPLY_FOR_HQ = false;
+export const APPLY_VOLUNTEER = false;
+export const APPLY_FOR_PANELS = false;
+export const APPLY_FOR_VENDORS = false;
 export const HQ_FULFILLMENT = false;
 export const HQ_FORM_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSdRC28XL-aSLjGewoEdWIzxlCqCU2NrBDDl5GAW2R29LwGq8A/viewform';

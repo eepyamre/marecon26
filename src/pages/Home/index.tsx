@@ -8,11 +8,15 @@ import {
   VENDORS_FORM_LINK,
   VOLUNTEER_FORM_LINK,
 } from '@/constants';
+import { random } from '@/utils';
 import cn from 'classnames';
 import { useEffect, useState } from 'preact/hooks';
 
 import { Note, Page, Photo } from '@/components';
 
+import live1 from '@/assets/LIVE/1.gif';
+import live2 from '@/assets/LIVE/2.gif';
+import live3 from '@/assets/LIVE/3.gif';
 import logo0 from '@/assets/logo/0.webp';
 import logo1 from '@/assets/logo/1.webp';
 import logo2 from '@/assets/logo/2.webp';
@@ -25,6 +29,7 @@ import css from './styles.module.scss';
 
 export const Home = () => {
   const [logoUrl, setLogoUrl] = useState(logo4);
+  const [cardUrl, setCardUrl] = useState(snowpityyy);
 
   useEffect(() => {
     const startTime = 1774639800000;
@@ -49,6 +54,10 @@ export const Home = () => {
     }
 
     setLogoUrl(pictures[selectedIndex]);
+
+    const cardUrls = [snowpityyy, live1, live2, live3];
+
+    setCardUrl(cardUrls[Math.round(random(0, cardUrls.length))] ?? snowpityyy);
   }, []);
 
   return (
@@ -56,12 +65,12 @@ export const Home = () => {
       <img src={logoUrl} alt="Logo" class={css.logo} />
 
       <div className={css.content}>
-        <div className={css.note}>(less than a week away!)</div>
+        <div className={css.note}>LIVE! LIVE! LIVE! LIVE! LIVE!</div>
         <div class={css.stamp}>
           <h3>Date</h3>
-          <span>March 27-29</span>
+          <span>RIGHT NOW!</span>
         </div>
-        <Photo className={css.sleepy} src={snowpityyy}>
+        <Photo className={css.sleepy} src={cardUrl}>
           Look at them go!
         </Photo>
         <div class={css.announcements}>
@@ -104,7 +113,9 @@ export const Home = () => {
               !APPLY_FOR_HQ &&
               !APPLY_VOLUNTEER && (
                 <Note className={css.announcementNote}>
-                  Nothing... Check back later or lurk the catalog for more info.
+                  We're live! Jump right into the{' '}
+                  <a href="https://cytu.be/r/marecon">CyTube channel</a> or{' '}
+                  <a href="/schedule">check the schedule</a>!
                 </Note>
               )}
           </div>

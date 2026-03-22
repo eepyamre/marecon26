@@ -3,7 +3,7 @@ import { NotFound, Schedule } from '@/pages';
 import { signal } from '@preact/signals';
 import { Route, Router } from 'preact-iso';
 
-import { Navigation, Notebook, Tooltip } from '@/components';
+import { HijackScreen, Navigation, Notebook, Tooltip } from '@/components';
 
 import logo from '@/assets/logo1.webp';
 
@@ -14,30 +14,32 @@ export const tooltipRef = signal<HTMLDivElement | null>(null);
 
 export const MainLayout = () => {
   return (
-    <main>
-      <Navigation />
-      <img src={logo} alt="Logo" class={css.logo} />
-      <Notebook>
-        <div class={css.pages}>
-          <Router>
-            {Object.entries(routes).map(([key, value]) => (
-              <Route key={key} path={key} component={value} />
-            ))}
-            <Schedule path={'/schedule/friday'} day="friday" />
-            <Schedule path={'/schedule/sunday'} day="sunday" />
-            <Schedule path={'/schedule/saturday'} day="saturday" />
+    <HijackScreen>
+      <main>
+        <Navigation />
+        <img src={logo} alt="Logo" class={css.logo} />
+        <Notebook>
+          <div class={css.pages}>
+            <Router>
+              {Object.entries(routes).map(([key, value]) => (
+                <Route key={key} path={key} component={value} />
+              ))}
+              <Schedule path={'/schedule/friday'} day="friday" />
+              <Schedule path={'/schedule/sunday'} day="sunday" />
+              <Schedule path={'/schedule/saturday'} day="saturday" />
 
-            <Route default component={NotFound} />
-          </Router>
-        </div>
-      </Notebook>
-      {showTooltip.value && (
-        <Tooltip
-          ref={(data) => {
-            tooltipRef.value = data;
-          }}
-        />
-      )}
-    </main>
+              <Route default component={NotFound} />
+            </Router>
+          </div>
+        </Notebook>
+        {showTooltip.value && (
+          <Tooltip
+            ref={(data) => {
+              tooltipRef.value = data;
+            }}
+          />
+        )}
+      </main>
+    </HijackScreen>
   );
 };

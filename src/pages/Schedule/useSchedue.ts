@@ -146,7 +146,6 @@ export const useSchedule = (day: string) => {
       times.push(new Date(i));
     }
 
-    debugger;
     if (t0Time > startTime) {
       let l = Math.round((t0Time - startTime) / min15);
       while (l--) {

@@ -9,22 +9,54 @@ import {
   VOLUNTEER_FORM_LINK,
 } from '@/constants';
 import cn from 'classnames';
+import { useEffect, useState } from 'preact/hooks';
 
 import { Note, Page, Photo } from '@/components';
 
-import logo2 from '@/assets/logo2.webp';
+import logo0 from '@/assets/logo/0.webp';
+import logo1 from '@/assets/logo/1.webp';
+import logo2 from '@/assets/logo/2.webp';
+import logo3 from '@/assets/logo/3.webp';
+import logo4 from '@/assets/logo/4.webp';
 // import sleepy from '@/assets/sleepy.png';
 import snowpityyy from '@/assets/snowpityyy.png';
 
 import css from './styles.module.scss';
 
 export const Home = () => {
+  const [logoUrl, setLogoUrl] = useState(logo4);
+
+  useEffect(() => {
+    const startTime = 1774639800000;
+    const endTime = 1774830600000;
+
+    const pictures = [logo0, logo1, logo2, logo3, logo4].reverse();
+
+    const currentTime = Date.now();
+    let selectedIndex = 0;
+
+    if (currentTime <= startTime) {
+      selectedIndex = 0;
+    } else if (currentTime >= endTime) {
+      selectedIndex = pictures.length - 1;
+    } else {
+      const totalDuration = endTime - startTime;
+      const timePerPicture = totalDuration / pictures.length;
+
+      const timeElapsed = currentTime - startTime;
+
+      selectedIndex = Math.floor(timeElapsed / timePerPicture);
+    }
+
+    setLogoUrl(pictures[selectedIndex]);
+  }, []);
+
   return (
     <Page className={css.page}>
-      <img src={logo2} alt="Logo" class={css.logo} />
+      <img src={logoUrl} alt="Logo" class={css.logo} />
 
       <div className={css.content}>
-        <div className={css.note}>(soon™)</div>
+        <div className={css.note}>(less than a week away!)</div>
         <div class={css.stamp}>
           <h3>Date</h3>
           <span>March 27-29</span>

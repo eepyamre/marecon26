@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import eyebeam from '@/assets/hijack/eyebeam.gif';
+import kekeke from '@/assets/hijack/kekeke.gif';
 import sexo from '@/assets/hijack/sexo.png';
 import sleep from '@/assets/hijack/sleep.png';
 import unf from '@/assets/hijack/unf.gif';
 
 import css from './styles.module.scss';
 
-const HIJACK_IMAGES = [eyebeam, sleep, unf, sexo];
+const HIJACK_IMAGES = [eyebeam, sleep, unf, sexo, kekeke];
 const HIJACK_CHANCE = 0.01;
 
 export const HijackScreen = ({
@@ -19,7 +20,7 @@ export const HijackScreen = ({
   const [image, setImage] = useState<string | null>(null);
 
   useEffect(() => {
-    const isHijacked = Math.random() < HIJACK_CHANCE;
+    const isHijacked = Math.random() <= HIJACK_CHANCE;
     setHijacked(isHijacked);
 
     if (isHijacked) {

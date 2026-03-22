@@ -7,3 +7,4 @@ export * from './Note';
 export * from './Tooltip';
 export * from './VendorCard';
 export * from './HijackScreen';
+export * from './HotBatAd';

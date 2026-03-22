@@ -3,7 +3,13 @@ import { NotFound, Schedule } from '@/pages';
 import { signal } from '@preact/signals';
 import { Route, Router } from 'preact-iso';
 
-import { HijackScreen, Navigation, Notebook, Tooltip } from '@/components';
+import {
+  HijackScreen,
+  HotBatAd,
+  Navigation,
+  Notebook,
+  Tooltip,
+} from '@/components';
 
 import logo from '@/assets/logo1.webp';
 
@@ -39,6 +45,7 @@ export const MainLayout = () => {
             }}
           />
         )}
+        <HotBatAd />
       </main>
     </HijackScreen>
   );

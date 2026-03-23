@@ -42,7 +42,7 @@
   position: relative;
   width: 100%;
   max-width: 300px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .imageContainer {
@@ -184,6 +184,8 @@
   white-space: nowrap;
   z-index: 200;
   font-size: 1rem;
+  user-select: text;
+  cursor: text;
 }
 
 @media (max-width: 900px) {

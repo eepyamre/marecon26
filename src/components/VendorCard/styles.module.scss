@@ -171,6 +171,21 @@
   overflow: hidden;
 }
 
+.note {
+  position: absolute;
+  background: var(--titleColor);
+  color: #fff;
+  transform: rotate(-10deg);
+  font-weight: 700;
+  padding: 6px 8px;
+  border-radius: 8px;
+  left: -32px;
+  top: -24px;
+  white-space: nowrap;
+  z-index: 200;
+  font-size: 1rem;
+}
+
 @media (max-width: 900px) {
   .slider,
   .imageWrapper,

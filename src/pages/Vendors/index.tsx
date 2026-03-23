@@ -8,7 +8,8 @@ type Vendor = {
   name: string;
   description: string;
   images: string[];
-  url?: string;
+  url: string;
+  note?: string;
 };
 
 const vendors: Vendor[] = [
@@ -43,6 +44,7 @@ const vendors: Vendor[] = [
       '/vendors/rocket/10.jpg',
     ],
     url: 'https://ko-fi.com/rocketlawnchair/shop',
+    note: 'Use code "MC26" for 15% off!',
   },
   {
     name: 'Mare Fair 2026',
@@ -156,6 +158,7 @@ export const Vendors = () => {
             description={vendor.description}
             images={vendor.images}
             website={vendor.url}
+            note={vendor.note}
           />
         ))}
       </div>

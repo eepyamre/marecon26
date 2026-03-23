@@ -9,15 +9,18 @@ import unf from '@/assets/hijack/unf.gif';
 import css from './styles.module.scss';
 
 const AD_IMAGES = [eyebeam, sleep, unf, sexo, kekeke];
-const AD_CHANCE = 0.1;
+const AD_CHANCE = 0.01;
 const AD_DELAY = 3000;
 const CLOSE_TIMER = 3;
+const INITIAL_DISTANCE = 1000;
 
 export const HotBatAd = () => {
   const [showAd, setShowAd] = useState(false);
   const [image, setImage] = useState<string | null>(null);
   const [countdown, setCountdown] = useState(CLOSE_TIMER);
   const [canClose, setCanClose] = useState(false);
+  const [isRunVariant, setIsRunVariant] = useState(false);
+  const [distance, setDistance] = useState(INITIAL_DISTANCE);
 
   useEffect(() => {
     if (Math.random() >= AD_CHANCE) {
@@ -26,6 +29,7 @@ export const HotBatAd = () => {
 
     const randomImage = AD_IMAGES[Math.floor(Math.random() * AD_IMAGES.length)];
     setImage(randomImage);
+    setIsRunVariant(Math.random() >= 0.5);
 
     const showTimer = setTimeout(() => {
       setShowAd(true);
@@ -48,6 +52,16 @@ export const HotBatAd = () => {
 
     return () => clearTimeout(timer);
   }, [showAd, countdown, canClose]);
+
+  useEffect(() => {
+    if (!showAd || !isRunVariant || distance <= 0) return;
+
+    const timer = setTimeout(() => {
+      setDistance((d) => Math.max(0, d - 50));
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [showAd, isRunVariant, distance]);
 
   const handleClose = () => {
     if (canClose) {
@@ -73,16 +87,37 @@ export const HotBatAd = () => {
       <div class={css.content}>
         <img src={image} alt="" class={css.image} />
         <div class={css.text}>
-          <h3 class={css.title}>HOT SINGLE BAT IN YOUR AREA</h3>
-          <p class={css.subtitle}>Click NOW to cream your pants!</p>
-          <a
-            href="https://cytu.be/r/marecon"
-            target="_blank"
-            rel="noopener noreferrer"
-            class={css.button}
-          >
-            {`>>> CLICK HERE <<<`}
-          </a>
+          {isRunVariant ? (
+            <>
+              <h3 class={css.title}>hot single bat in {distance} meters</h3>
+              {distance > 0 ? (
+                <p class={css.subtitle}>they're getting closer...</p>
+              ) : (
+                <p class={css.subtitle}>right behind you</p>
+              )}
+              <a
+                href="https://cytu.be/r/marecon"
+                target="_blank"
+                rel="noopener noreferrer"
+                class={css.button}
+              >
+                {`>>> RUN <<<`}
+              </a>
+            </>
+          ) : (
+            <>
+              <h3 class={css.title}>HOT SINGLE BAT IN YOUR AREA</h3>
+              <p class={css.subtitle}>Click NOW to cream your pants!</p>
+              <a
+                href="https://cytu.be/r/marecon"
+                target="_blank"
+                rel="noopener noreferrer"
+                class={css.button}
+              >
+                {`>>> CLICK HERE <<<`}
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -144,6 +144,12 @@ const vendors: Vendor[] = [
     ],
     url: 'https://shop.mares.horse/',
   },
+  {
+    name: 'NeighCon',
+    description: 'We are selling badges for our con',
+    images: ['/vendors/neighcon/1.webp'],
+    url: 'https://neighcon.net/',
+  },
 ];
 
 export const Vendors = () => {

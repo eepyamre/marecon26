@@ -25,6 +25,7 @@ import css from './styles.module.scss';
 
 export const Home = () => {
   const [logoUrl, setLogoUrl] = useState(logo4);
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
 
   useEffect(() => {
     const startTime = 1774639800000;
@@ -51,6 +52,33 @@ export const Home = () => {
     setLogoUrl(pictures[selectedIndex]);
   }, []);
 
+  useEffect(() => {
+    const targetTime = 1774639800000;
+
+    const updateCountdown = () => {
+      const now = Date.now();
+      const diff = targetTime - now;
+
+      if (diff <= 0) {
+        setCountdown({ days: 0, hours: 0, minutes: 0 });
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+      setCountdown({ days, hours, minutes });
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Page className={css.page}>
       <img src={logoUrl} alt="Logo" class={css.logo} />
@@ -58,8 +86,10 @@ export const Home = () => {
       <div className={css.content}>
         <div className={css.note}>(less than a week away!)</div>
         <div class={css.stamp}>
-          <h3>Date</h3>
-          <span>March 27-29</span>
+          <h3>Countdown</h3>
+          <span>
+            {countdown.days}d {countdown.hours}h {countdown.minutes}m
+          </span>
         </div>
         <Photo className={css.sleepy} src={snowpityyy}>
           Look at them go!

@@ -8,7 +8,8 @@ type Vendor = {
   name: string;
   description: string;
   images: string[];
-  url?: string;
+  url: string;
+  note?: string;
 };
 
 const vendors: Vendor[] = [
@@ -43,6 +44,7 @@ const vendors: Vendor[] = [
       '/vendors/rocket/10.jpg',
     ],
     url: 'https://ko-fi.com/rocketlawnchair/shop',
+    note: 'Use code "MC26" for 15% off!',
   },
   {
     name: 'Mare Fair 2026',
@@ -142,6 +144,12 @@ const vendors: Vendor[] = [
     ],
     url: 'https://shop.mares.horse/',
   },
+  {
+    name: 'NeighCon',
+    description: 'We are selling badges for our con',
+    images: ['/vendors/neighcon/1.webp'],
+    url: 'https://neighcon.net/',
+  },
 ];
 
 export const Vendors = () => {
@@ -156,6 +164,7 @@ export const Vendors = () => {
             description={vendor.description}
             images={vendor.images}
             website={vendor.url}
+            note={vendor.note}
           />
         ))}
       </div>

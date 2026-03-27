@@ -9,6 +9,7 @@ type VendorCardProps = {
   images: string[];
   website?: string;
   className?: string;
+  note?: string;
 };
 
 export const VendorCard: FC<VendorCardProps> = ({
@@ -17,6 +18,7 @@ export const VendorCard: FC<VendorCardProps> = ({
   images,
   website,
   className,
+  note,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageCount = images.length;
@@ -59,6 +61,7 @@ export const VendorCard: FC<VendorCardProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         class={cn(css.card, className)}
+        draggable={false}
       >
         <div class={css.imageWrapper}>
           <img src={images[0]} alt={name} />
@@ -67,6 +70,15 @@ export const VendorCard: FC<VendorCardProps> = ({
           <div class={css.name}>{name}</div>
           <div class={css.description}>{description}</div>
         </div>
+        {note && (
+          <div
+            onMouseDown={(e) => e.stopPropagation()}
+            onClick={(e) => e.preventDefault()}
+            class={css.note}
+          >
+            {note}
+          </div>
+        )}
       </a>
     );
   }
@@ -77,6 +89,7 @@ export const VendorCard: FC<VendorCardProps> = ({
       target="_blank"
       rel="noopener noreferrer"
       class={cn(css.card, className)}
+      draggable={false}
     >
       <div class={css.slider}>
         <div class={css.imageContainer}>
@@ -123,6 +136,15 @@ export const VendorCard: FC<VendorCardProps> = ({
         <div class={css.name}>{name}</div>
         <div class={css.description}>{description}</div>
       </div>
+      {note && (
+        <div
+          class={css.note}
+          onMouseDown={(e) => e.stopPropagation()}
+          onClick={(e) => e.preventDefault()}
+        >
+          {note}
+        </div>
+      )}
     </a>
   );
 };

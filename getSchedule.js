@@ -155,6 +155,6 @@ const getSchedule = async () => {
 };
 getSchedule();
 
-cron.schedule('0 * * * *', () => {
+cron.schedule('*/15 * * * *', () => {
   getSchedule();
 });

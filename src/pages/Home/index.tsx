@@ -8,11 +8,16 @@ import {
   VENDORS_FORM_LINK,
   VOLUNTEER_FORM_LINK,
 } from '@/constants';
+import { random } from '@/utils';
 import cn from 'classnames';
 import { useEffect, useState } from 'preact/hooks';
 
-import { Note, Page, Photo } from '@/components';
+import { Button, Note, Page, Photo } from '@/components';
 
+import live1 from '@/assets/LIVE/1.gif';
+import live2 from '@/assets/LIVE/2.gif';
+import live3 from '@/assets/LIVE/3.gif';
+import comfy2 from '@/assets/comfy2.png';
 import logo0 from '@/assets/logo/0.webp';
 import logo1 from '@/assets/logo/1.webp';
 import logo2 from '@/assets/logo/2.webp';
@@ -26,6 +31,8 @@ import css from './styles.module.scss';
 export const Home = () => {
   const [logoUrl, setLogoUrl] = useState(logo4);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
+  const [countdownEnded, setCountdownEnded] = useState(false);
+  const [cardUrl, setCardUrl] = useState(snowpityyy);
 
   useEffect(() => {
     const startTime = 1774639800000;
@@ -50,6 +57,10 @@ export const Home = () => {
     }
 
     setLogoUrl(pictures[selectedIndex]);
+
+    const cardUrls = [snowpityyy, live1, live2, live3];
+
+    setCardUrl(cardUrls[Math.round(random(0, cardUrls.length))] ?? snowpityyy);
   }, []);
 
   useEffect(() => {
@@ -61,6 +72,7 @@ export const Home = () => {
 
       if (diff <= 0) {
         setCountdown({ days: 0, hours: 0, minutes: 0 });
+        setCountdownEnded(true);
         return;
       }
 
@@ -79,66 +91,86 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const announcments = (
+    <div class={css.announcements}>
+      <h3 class={css.noteTitle}>Current Happenings:</h3>
+      <div class={css.list}>
+        {APPLY_FOR_VENDORS && (
+          <Note className={cn(css.announcementNote, css.vendorsNote)}>
+            Want to be a vendor?{' '}
+            <a href={VENDORS_FORM_LINK} target="_blank">
+              Apply Here!
+            </a>
+          </Note>
+        )}
+        {APPLY_FOR_PANELS && (
+          <Note className={cn(css.announcementNote, css.panelsNote)}>
+            Panel submissions are now OPEN!{' '}
+            <a href={PANELS_FORM_LINK} target="_blank">
+              Got an idea? Apply NOW!
+            </a>
+          </Note>
+        )}
+        {APPLY_FOR_HQ && !HQ_FULFILLMENT && (
+          <Note className={cn(css.announcementNote, css.hqNote)}>
+            Help run the con from the inside.
+            <a href="/hq">What's HQ?</a>
+          </Note>
+        )}
+
+        {APPLY_VOLUNTEER && (
+          <Note className={cn(css.announcementNote, css.hqNote)}>
+            Help out with the con without being there in person.
+            <a href={VOLUNTEER_FORM_LINK} target="_blank">
+              Apply Here!
+            </a>
+          </Note>
+        )}
+
+        {!APPLY_FOR_PANELS &&
+          !APPLY_FOR_VENDORS &&
+          !APPLY_FOR_HQ &&
+          !APPLY_VOLUNTEER && (
+            <Note className={css.announcementNote}>
+              {countdownEnded ? "We're LIVE!" : 'Starting soon!'} Jump right
+              into the <a href="https://cytu.be/r/marecon">CyTube channel</a> or{' '}
+              <a href="/schedule">check the schedule</a>!
+            </Note>
+          )}
+      </div>
+    </div>
+  );
+
   return (
     <Page className={css.page}>
       <img src={logoUrl} alt="Logo" class={css.logo} />
 
       <div className={css.content}>
-        <div className={css.note}>(TODAY!)</div>
-        <div class={css.stamp}>
-          <h3>Countdown</h3>
-          <span>
-            {countdown.days}d {countdown.hours}h {countdown.minutes}m
-          </span>
+        <div class={css.note}>
+          {countdownEnded ? 'LIVE!' : 'Starting Soon!'}
         </div>
-        <Photo className={css.sleepy} src={snowpityyy}>
-          Look at them go!
-        </Photo>
-        <div class={css.announcements}>
-          <h3 class={css.noteTitle}>Current Happenings:</h3>
-          <div class={css.list}>
-            {APPLY_FOR_VENDORS && (
-              <Note className={cn(css.announcementNote, css.vendorsNote)}>
-                Want to be a vendor?{' '}
-                <a href={VENDORS_FORM_LINK} target="_blank">
-                  Apply Here!
-                </a>
-              </Note>
-            )}
-            {APPLY_FOR_PANELS && (
-              <Note className={cn(css.announcementNote, css.panelsNote)}>
-                Panel submissions are now OPEN!{' '}
-                <a href={PANELS_FORM_LINK} target="_blank">
-                  Got an idea? Apply NOW!
-                </a>
-              </Note>
-            )}
-            {APPLY_FOR_HQ && !HQ_FULFILLMENT && (
-              <Note className={cn(css.announcementNote, css.hqNote)}>
-                Help run the con from the inside.
-                <a href="/hq">What's HQ?</a>
-              </Note>
-            )}
 
-            {APPLY_VOLUNTEER && (
-              <Note className={cn(css.announcementNote, css.hqNote)}>
-                Help out with the con without being there in person.
-                <a href={VOLUNTEER_FORM_LINK} target="_blank">
-                  Apply Here!
-                </a>
-              </Note>
-            )}
+        {countdownEnded && announcments}
 
-            {!APPLY_FOR_PANELS &&
-              !APPLY_FOR_VENDORS &&
-              !APPLY_FOR_HQ &&
-              !APPLY_VOLUNTEER && (
-                <Note className={css.announcementNote}>
-                  Nothing... Check back later or lurk the catalog for more info.
-                </Note>
-              )}
+        <div class={css.photos}>
+          <Photo className={css.sleepy} src={cardUrl}>
+            Look at them go!
+          </Photo>
+
+          <Photo className={css.comfy2} src={comfy2}>
+            Marecon-ing hard
+          </Photo>
+        </div>
+        {!countdownEnded && (
+          <div class={css.stamp}>
+            <h3>Starting in</h3>
+            <span>
+              {countdown.days}d {countdown.hours}h {countdown.minutes}m
+            </span>
           </div>
-        </div>
+        )}
+
+        {!countdownEnded && announcments}
       </div>
     </Page>
   );

@@ -41,6 +41,7 @@
     font-family: 'Kalam', cursive;
   }
 
+  a,
   span {
     color: var(--red);
     font-weight: 600;
@@ -50,8 +51,8 @@
 }
 
 .announcementNote {
-  max-width: 400px;
-  font-size: 1.2rem;
+  max-width: 600px;
+  font-size: 1.5rem;
   cursor: pointer;
   display: inline;
 
@@ -104,7 +105,7 @@
 }
 
 .announcements {
-  margin-top: 72px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -113,6 +114,57 @@
 .noteTitle {
   text-align: center;
   font-size: 2.5rem;
+  line-height: 1;
+}
+
+.liveSectionTitle {
+  text-align: center;
+  width: 100%;
+  font-size: 1.8rem;
+  color: var(--red, #e74c3c);
+  margin: 0;
+}
+
+.livePanelNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transform: scale(1.05) rotate(-1deg);
+
+  &:hover {
+    transform: scale(1.05) rotate(1deg);
+  }
+
+  a {
+    text-decoration: underline;
+    font-weight: 600;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+.liveDot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--red, #e74c3c);
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
 }
 
 .hqNote {
@@ -133,6 +185,24 @@
   flex-direction: column;
 }
 
+.photos {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.comfy2 {
+  transform: rotate(-8deg);
+
+  div {
+    font-size: 1.5rem !important;
+
+    &:first-of-type {
+      aspect-ratio: 1.5/1;
+    }
+  }
+}
+
 @media (max-width: 900px) {
   .logo {
     width: 100%;
@@ -140,10 +210,11 @@
 
   .sleepy {
     width: 100%;
-    transform: none;
     margin-top: 24px;
     max-width: 400px;
     align-self: center;
+    position: relative;
+    top: -16px;
   }
 
   .stamp {
@@ -167,9 +238,16 @@
 
   .announcementNote {
     transform: none;
+    font-size: 1.5rem;
   }
 
   .list {
     gap: 12px;
+  }
+
+  .comfy2 {
+    position: relative;
+    left: -24px;
+    margin-top: 90px;
   }
 }

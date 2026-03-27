@@ -84,7 +84,7 @@ export const Home = () => {
       <img src={logoUrl} alt="Logo" class={css.logo} />
 
       <div className={css.content}>
-        <div className={css.note}>(less than a week away!)</div>
+        <div className={css.note}>(TODAY!)</div>
         <div class={css.stamp}>
           <h3>Countdown</h3>
           <span>

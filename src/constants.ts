@@ -1,4 +1,4 @@
-export const APPLY_FOR_HQ = true;
+export const APPLY_FOR_HQ = false;
 export const APPLY_VOLUNTEER = true;
 export const APPLY_FOR_PANELS = true;
 export const APPLY_FOR_VENDORS = true;

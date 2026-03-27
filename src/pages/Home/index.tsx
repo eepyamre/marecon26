@@ -23,18 +23,35 @@ import logo1 from '@/assets/logo/1.webp';
 import logo2 from '@/assets/logo/2.webp';
 import logo3 from '@/assets/logo/3.webp';
 import logo4 from '@/assets/logo/4.webp';
+import bapLogo from '@/assets/logo/bap.webp';
 // import sleepy from '@/assets/sleepy.png';
 import snowpityyy from '@/assets/snowpityyy.png';
 
 import css from './styles.module.scss';
+
+const BAP_LOGO_CHANCE = 0.05;
+
+type LivePanel = {
+  title: string;
+  ch: string[];
+};
 
 export const Home = () => {
   const [logoUrl, setLogoUrl] = useState(logo4);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
   const [countdownEnded, setCountdownEnded] = useState(false);
   const [cardUrl, setCardUrl] = useState(snowpityyy);
+  const [livePanels, setLivePanels] = useState<LivePanel[]>([]);
 
   useEffect(() => {
+    const cardUrls = [snowpityyy, live1, live2, live3];
+
+    setCardUrl(cardUrls[Math.round(random(0, cardUrls.length))] ?? snowpityyy);
+    if (BAP_LOGO_CHANCE > Math.random()) {
+      setLogoUrl(bapLogo);
+      return;
+    }
+
     const startTime = 1774639800000;
     const endTime = 1774830600000;
 
@@ -57,10 +74,6 @@ export const Home = () => {
     }
 
     setLogoUrl(pictures[selectedIndex]);
-
-    const cardUrls = [snowpityyy, live1, live2, live3];
-
-    setCardUrl(cardUrls[Math.round(random(0, cardUrls.length))] ?? snowpityyy);
   }, []);
 
   useEffect(() => {
@@ -91,10 +104,49 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const fetchLivePanels = async () => {
+      try {
+        const response = await fetch('/schedule.json');
+        const schedule = (await response.json()) as {
+          title: string;
+          unixtime: number;
+          duration: number;
+          ch: string[];
+        }[][];
+
+        const now = Date.now();
+        const allPanels = schedule.flat();
+        const current = allPanels.filter(
+          (panel) =>
+            now >= panel.unixtime &&
+            now <= panel.unixtime + panel.duration * 60 * 1000,
+        );
+
+        setLivePanels(current.map((p) => ({ title: p.title, ch: p.ch })));
+      } catch {
+        // schedule.json unavailable, ignore
+      }
+    };
+
+    fetchLivePanels();
+  }, []);
+
   const announcments = (
     <div class={css.announcements}>
       <h3 class={css.noteTitle}>Current Happenings:</h3>
       <div class={css.list}>
+        {countdownEnded && livePanels.length > 0 && (
+          <>
+            {livePanels.map((panel) => (
+              <Note className={cn(css.announcementNote, css.livePanelNote)}>
+                <a href={panel.ch[0]} target="_blank">
+                  {panel.title}
+                </a>
+              </Note>
+            ))}
+          </>
+        )}
         {APPLY_FOR_VENDORS && (
           <Note className={cn(css.announcementNote, css.vendorsNote)}>
             Want to be a vendor?{' '}

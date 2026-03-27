@@ -117,6 +117,56 @@
   line-height: 1;
 }
 
+.liveSectionTitle {
+  text-align: center;
+  width: 100%;
+  font-size: 1.8rem;
+  color: var(--red, #e74c3c);
+  margin: 0;
+}
+
+.livePanelNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transform: scale(1.05) rotate(-1deg);
+
+  &:hover {
+    transform: scale(1.05) rotate(1deg);
+  }
+
+  a {
+    text-decoration: underline;
+    font-weight: 600;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+.liveDot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--red, #e74c3c);
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
 .hqNote {
   transform: scale(1) rotate(-1deg);
 

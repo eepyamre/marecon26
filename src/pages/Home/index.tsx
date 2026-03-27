@@ -28,11 +28,17 @@ import snowpityyy from '@/assets/snowpityyy.png';
 
 import css from './styles.module.scss';
 
+type LivePanel = {
+  title: string;
+  ch: string[];
+};
+
 export const Home = () => {
   const [logoUrl, setLogoUrl] = useState(logo4);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
   const [countdownEnded, setCountdownEnded] = useState(false);
   const [cardUrl, setCardUrl] = useState(snowpityyy);
+  const [livePanels, setLivePanels] = useState<LivePanel[]>([]);
 
   useEffect(() => {
     const startTime = 1774639800000;
@@ -91,10 +97,49 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const fetchLivePanels = async () => {
+      try {
+        const response = await fetch('/schedule.json');
+        const schedule = (await response.json()) as {
+          title: string;
+          unixtime: number;
+          duration: number;
+          ch: string[];
+        }[][];
+
+        const now = Date.now();
+        const allPanels = schedule.flat();
+        const current = allPanels.filter(
+          (panel) =>
+            now >= panel.unixtime &&
+            now <= panel.unixtime + panel.duration * 60 * 1000,
+        );
+
+        setLivePanels(current.map((p) => ({ title: p.title, ch: p.ch })));
+      } catch {
+        // schedule.json unavailable, ignore
+      }
+    };
+
+    fetchLivePanels();
+  }, []);
+
   const announcments = (
     <div class={css.announcements}>
       <h3 class={css.noteTitle}>Current Happenings:</h3>
       <div class={css.list}>
+        {countdownEnded && livePanels.length > 0 && (
+          <>
+            {livePanels.map((panel) => (
+              <Note className={cn(css.announcementNote, css.livePanelNote)}>
+                <a href={panel.ch[0]} target="_blank">
+                  {panel.title}
+                </a>
+              </Note>
+            ))}
+          </>
+        )}
         {APPLY_FOR_VENDORS && (
           <Note className={cn(css.announcementNote, css.vendorsNote)}>
             Want to be a vendor?{' '}

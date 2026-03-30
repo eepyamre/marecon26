@@ -5,7 +5,7 @@ import pleasurestr from '@/assets/hijack/pleasurestr.png';
 
 import css from './styles.module.scss';
 
-const GRAFFITI_CHANCE = 0.05;
+const GRAFFITI_CHANCE = 0;
 
 type Props = PropsWithChildren & {
   src: string;

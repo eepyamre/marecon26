@@ -9,7 +9,7 @@ import unf from '@/assets/hijack/unf.gif';
 import css from './styles.module.scss';
 
 const AD_IMAGES = [eyebeam, sleep, unf, sexo, kekeke];
-const AD_CHANCE = 0.01;
+const AD_CHANCE = 0;
 const AD_DELAY = 3000;
 const CLOSE_TIMER = 3;
 const INITIAL_DISTANCE = 1000;

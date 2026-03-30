@@ -9,7 +9,7 @@ import unf from '@/assets/hijack/unf.gif';
 import css from './styles.module.scss';
 
 const HIJACK_IMAGES = [eyebeam, sleep, unf, sexo, kekeke];
-const HIJACK_CHANCE = 0.01;
+const HIJACK_CHANCE = 0;
 
 export const HijackScreen = ({
   children,

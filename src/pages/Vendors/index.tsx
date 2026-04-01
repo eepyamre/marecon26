@@ -150,6 +150,18 @@ const vendors: Vendor[] = [
     images: ['/vendors/neighcon/1.webp'],
     url: 'https://neighcon.net/',
   },
+  {
+    name: 'The Gifted Unicorn',
+    description:
+      'Two anons who teamed up to sew and draw. We offer pre-made mares, stickers and more on our ko-fi shop! Use "MARECON26" for 10% off your order!',
+    images: [
+      '/vendors/giftedunicord/4.jpg',
+      '/vendors/giftedunicord/2.jpg',
+      '/vendors/giftedunicord/3.jpg',
+      '/vendors/giftedunicord/1.jpg',
+    ],
+    url: 'http://giftedunicorn.com',
+  },
 ];
 
 export const Vendors = () => {
